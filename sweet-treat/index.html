@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sweet Treat Desserts — Hackney's Nut-Free Bakery</title>
+<meta name="description" content="A from-scratch, 100% nut-free bakery on Lambton Row in Hackney, London. Cupcakes, custom cakes, wedding cakes and desserts — peanut- and tree-nut-free. Call 020 7946 0318.">
+<link rel="canonical" href="https://sweettreatdesserts.co.uk/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sweet Treat Desserts — Hackney's Nut-Free Bakery">
+<meta property="og:description" content="From-scratch, 100% nut-free cupcakes, custom cakes, wedding cakes and desserts in Hackney, London.">
+<meta property="og:image" content="https://sweettreatdesserts.co.uk/images/shopfront.webp">
+<meta property="og:url" content="https://sweettreatdesserts.co.uk/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sweet Treat Desserts — Hackney's Nut-Free Bakery">
+<meta name="twitter:description" content="From-scratch, nut-free cupcakes, custom cakes and wedding cakes in Hackney, London.">
+
+<link href="../assets/fonts/baloo2-nunito-caveat-6d0d2e.css" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Sweet Treat Desserts",
+  "image": "https://sweettreatdesserts.co.uk/images/shopfront.webp",
+  "url": "https://sweettreatdesserts.co.uk/",
+  "telephone": "+44-20-7946-0318",
+  "priceRange": "££",
+  "servesCuisine": "Bakery, Desserts",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "58 Lambton Row",
+    "addressLocality": "London",
+    "addressRegion": "London",
+    "postalCode": "E8 3RN",
+    "addressCountry": "GB"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 51.5455, "longitude": -0.0554 },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "92" },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "17:00" }
+  ],
+  "areaServed": ["Hackney", "Islington", "Walthamstow", "Stoke Newington", "Dalston"]
+}
+</script>
+
+<!-- Purple Standard portfolio demo build -->
+<meta name="robots" content="noindex, nofollow" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Purple Standard" />
+<link rel="manifest" href="../manifest.webmanifest" />
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ HEADER (inline — homepage paths) ============ -->
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html" aria-label="Sweet Treat Desserts — home">
+      <span class="brand-name">Sweet Treat</span>
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span class="brand-tag">Nut-Free Bakery</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navmenu" aria-label="Menu"><span></span></button>
+    <ul class="nav-links" id="navmenu">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="pages/cupcakes.html">Cupcakes</a></li>
+      <li><a href="pages/cakes.html">Custom Cakes</a></li>
+      <li><a href="pages/weddings.html">Weddings</a></li>
+      <li><a href="pages/desserts.html">Desserts</a></li>
+      <li><a href="pages/about.html">About</a></li>
+      <li><a href="pages/visit.html">Visit</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="nav-call" href="tel:+442079460318">020 7946 0318</a>
+      <a class="btn btn--primary" href="pages/visit.html#order">Start a cake order</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO — the interactive cake ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-head reveal in">
+        <p class="eyebrow">Cupcakes · Custom Cakes · Wedding Cakes</p>
+        <h1>Sweet, from scratch, <em>and nut-free.</em></h1>
+        <p class="lede">A bright little bakery on Lambton Row in Hackney — everything baked here, every day, in a 100% peanut- and tree-nut-free kitchen.</p>
+      </div>
+
+      <div class="hero-grid">
+        <!-- The cake IS the navigation. It is drawn + animated as an inline
+             SVG cake-stand by js/main.js (buildCakeSVG). The <noscript> list
+             keeps the tiers reachable without JS; the same links also live in
+             the top nav, so crawlers always find them. -->
+        <div class="cakescape reveal in d1" id="cakescape">
+          <noscript>
+            <ul class="cake-fallback">
+              <li><a href="pages/cupcakes.html">Cupcakes</a></li>
+              <li><a href="pages/desserts.html">Desserts &amp; Treats</a></li>
+              <li><a href="pages/cakes.html">Custom Cakes</a></li>
+              <li><a href="pages/weddings.html">Wedding Cakes</a></li>
+            </ul>
+          </noscript>
+        </div>
+
+        <!-- Detail panel — updates as you hover/focus a tier -->
+        <aside class="cake-panel glass" id="cake-panel" aria-live="polite">
+          <p class="pk" id="panel-kicker">Sweet Treat, layer by layer</p>
+          <h2 id="panel-title">Pick a layer.</h2>
+          <p id="panel-text">Our whole menu, stacked into one cake. Hover a tier to take a look &mdash; or just tap one. Every layer, start to finish, is 100% nut-free.</p>
+          <a class="ulink panel-link" id="panel-link" href="pages/visit.html">Visit the shop <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </aside>
+      </div>
+
+      <p class="cake-hint">Hover a layer to peek inside &mdash; or just pick one</p>
+    </div>
+  </section>
+
+  <!-- ============ NUT-FREE PROMISE ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="band band--rose reveal">
+        <div class="promise-grid">
+          <div>
+            <p class="eyebrow">The promise</p>
+            <h2>A bakery the whole party can eat at.</h2>
+            <p>Sweet Treat is a 100% nut-free facility &mdash; no peanuts, no tree nuts, anywhere in the kitchen. Everything is made from scratch, so the birthday kid with an allergy gets the same cake as everyone else. We also keep options for other sensitivities. <span class="confirm">[CONFIRM exact dietary wording]</span></p>
+          </div>
+          <div class="pills" aria-label="Dietary notes">
+            <span class="pill">Peanut-free facility</span>
+            <span class="pill">Tree-nut-free facility</span>
+            <span class="pill">Baked from scratch</span>
+            <span class="pill">Gluten-sensitive options</span>
+            <span class="pill">Dairy-sensitive options</span>
+            <span class="pill">Egg-sensitive options</span>
+            <span class="pill">Vegan on request</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PEEK AT THE COUNTER ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">A peek at the counter</p>
+        <h2>Made this morning, in our open kitchen</h2>
+        <p>Stand at the counter and watch it happen &mdash; the kitchen is open, and so is the invitation. <span class="confirm">[CONFIRM product range]</span></p>
+      </div>
+      <div class="peek reveal d1">
+        <a class="pcard glass" href="pages/cupcakes.html">
+          <span class="pcard-photo"><img src="images/peek-cupcakes.webp" alt="Two vanilla cupcakes with swirled white frosting and sprinkles" width="420" height="315" loading="lazy"></span>
+          <span class="pcard-body">
+            <h3>Cupcakes</h3>
+            <p>Dozens of from-scratch flavours, by the each or the box.</p>
+            <span class="ulink">See cupcakes <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </span>
+        </a>
+        <a class="pcard glass" href="pages/cakes.html">
+          <span class="pcard-photo"><img src="images/peek-cake.webp" alt="A chocolate Happy Birthday cake decorated with piped buttercream roses" width="420" height="315" loading="lazy"></span>
+          <span class="pcard-body">
+            <h3>Custom Cakes</h3>
+            <p>Birthdays and celebrations, decorated around your day.</p>
+            <span class="ulink">See custom cakes <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </span>
+        </a>
+        <a class="pcard glass" href="pages/weddings.html">
+          <span class="pcard-photo"><img src="images/peek-wedding.webp" alt="A three-tier white wedding cake finished with fresh white flowers" width="420" height="315" loading="lazy"></span>
+          <span class="pcard-body">
+            <h3>Wedding Cakes</h3>
+            <p>Tiered, elegant, and safe for every guest at the table.</p>
+            <span class="ulink">See wedding cakes <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">What Hackney says</p>
+        <h2>4.7 stars, and a lot of relieved parents</h2>
+        <p>A nut-free bakery is a small miracle if your family needs one. <span class="confirm">[CONFIRM exact quotes &amp; attribution]</span></p>
+      </div>
+      <div class="reviews reveal d1">
+        <figure class="review glass">
+          <div class="stars" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+          </div>
+          <blockquote>&ldquo;Finally a bakery I can send to a class party without a second thought. The cupcakes are gorgeous and they taste even better.&rdquo;</blockquote>
+          <figcaption class="who"><b>Priya&nbsp;S.</b> &middot; Hackney</figcaption>
+        </figure>
+        <figure class="review glass">
+          <div class="stars" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+          </div>
+          <blockquote>&ldquo;Ordered our daughter&rsquo;s birthday cake here &mdash; beautiful work, and it was ready exactly when promised.&rdquo;</blockquote>
+          <figcaption class="who"><b>Daniel&nbsp;R.</b> &middot; Custom cake</figcaption>
+        </figure>
+        <figure class="review glass">
+          <div class="stars" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+          </div>
+          <blockquote>&ldquo;The flourless brownies are dangerous. Lovely people, and you can watch them bake right there.&rdquo;</blockquote>
+          <figcaption class="who"><b>Megan&nbsp;T.</b> &middot; Regular</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA BAND ============ -->
+  <section class="section--tight cta-band">
+    <div class="wrap">
+      <div class="band band--rose reveal">
+        <p class="eyebrow">Got something to celebrate?</p>
+        <h2>Let&rsquo;s plan <em>your cake.</em></h2>
+        <p>Tell us the occasion, the date and the flavour &mdash; we&rsquo;ll take it from there.</p>
+        <p class="mt-3">
+          <a class="btn btn--primary btn--lg" href="tel:+442079460318">Call 020 7946 0318</a>
+          <a class="btn btn--glass btn--lg" href="pages/visit.html#order" style="margin-left:10px">Start a cake order</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER (inline — homepage paths) ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner glass">
+      <div class="footer-grid">
+        <div>
+          <span class="brand-name" style="font-size:1.4rem">Sweet Treat Desserts</span>
+          <p style="margin-top:10px;max-width:42ch">A from-scratch, 100% nut-free bakery on Lambton Row in Hackney, London. Cupcakes, custom cakes, wedding cakes &amp; desserts.</p>
+          <p style="margin-top:12px">
+            <a href="https://www.instagram.com/sweettreatdesserts/" target="_blank" rel="noopener">Instagram ↗</a>
+            &nbsp;&nbsp;·&nbsp;&nbsp;
+            <a href="https://www.facebook.com/SweetTreatDesserts/" target="_blank" rel="noopener">Facebook ↗</a>
+          </p>
+        </div>
+        <div>
+          <h4>Visit</h4>
+          <ul>
+            <li>58 Lambton Row<br>London E8 3RN</li>
+            <li><a href="tel:+442079460318">020 7946 0318</a></li>
+            <li><a href="https://maps.google.com/?q=58+Lambton+Row+London+E8+3RN" target="_blank" rel="noopener">Get directions ↗</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Hours <span class="confirm">[CONFIRM]</span></h4>
+          <ul>
+            <li>Tue–Fri&nbsp;&nbsp;9am–6pm</li>
+            <li>Saturday&nbsp;&nbsp;9am–5pm</li>
+            <li>Sun &amp; Mon&nbsp;&nbsp;Closed</li>
+            <li style="margin-top:8px"><a href="pages/visit.html#order">Start a cake order</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bar">
+        <span>© 2026 Sweet Treat Desserts</span>
+        <span>Also in Walthamstow · A 100% nut-free bakery</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ STICKY MOBILE CALL BAR ============ -->
+<div class="call-bar">
+  <a href="tel:+442079460318">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.5 3h3l1.5 5-2 1.5a13 13 0 0 0 6 6l1.5-2 5 1.5v3c0 1-.8 1.9-1.9 1.8C12 23 1 12 1.7 4.9 1.6 3.8 2.5 3 3.5 3Z"/></svg>
+    Call 020 7946 0318
+  </a>
+</div>
+
+<script src="js/gsap.min.js" defer></script>
+<script src="js/main.js?v=3" defer></script>
+
+<a id="rvz-back" href="../index.html" aria-label="Back to the Purple Standard portfolio">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M15 18l-6-6 6-6"/>
+  </svg>Portfolio</a>
+<script src="../assets/demo.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,611 @@
+/* ============================================================
+   Lantern Art Cafe — "The Long Room"
+   An immersive gallery hall. Evolves the Day Room design system
+   into a spotlit, walkable space. Self-contained.
+   ============================================================ */
+
+:root {
+  /* ---- Brand palette (kept from the Day Room) ---- */
+  --paper:        #F6F2EC;
+  --paper-2:      #EFE8DC;
+  --paper-3:      #E7DECC;
+  --terracotta:   #C82A34;
+  --terracotta-d: #A81F29;
+  --olive:        #5C6B3A;
+  --saffron:      #E2A33C;
+  --teal:         #1F3D3A;
+  --teal-2:       #16302E;
+  --ink-soft:     #5A554E;
+  --hair:         #D9CFBA;
+
+  /* ---- Gallery-space additions ---- */
+  --wall-warm:    #EFE7D7;   /* near end: café warmth   */
+  --wall-cool:    #F3EFE6;   /* far end: gallery light  */
+  --wall-deep:    #2a2018;   /* wall shadow in the vignette */
+  --brass:        #b89257;   /* plaque metal            */
+  --brass-hi:     #e7cf9c;   /* plaque highlight        */
+  --brass-lo:     #6f5325;   /* plaque engraving        */
+  --spot:         #fff3d8;   /* the light itself        */
+
+  --frame-color:  var(--terracotta);
+
+  /* ---- Type ---- */
+  --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --sans:  'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --hand:  'Caveat', 'Brush Script MT', cursive;
+  --arabic:'Amiri', 'Times New Roman', serif;
+
+  --t-display: clamp(2.8rem, 1.4rem + 6vw, 6rem);
+  --t-h1:      clamp(2.1rem, 1.5rem + 2.8vw, 3.4rem);
+  --t-h2:      clamp(1.75rem, 1.3rem + 1.9vw, 2.6rem);
+  --t-h3:      clamp(1.15rem, 1.0rem + 0.7vw, 1.45rem);
+  --t-lead:    clamp(1.08rem, 1.0rem + 0.4vw, 1.28rem);
+  --t-body:    1.0625rem;
+  --t-label:   0.72rem;
+
+  --sp-1: 8px; --sp-2: 16px; --sp-3: 24px; --sp-4: 32px;
+  --sp-5: 48px; --sp-6: 72px; --sp-7: 104px;
+
+  --maxw: 1240px;
+  --gutter: clamp(20px, 4.5vw, 56px);
+  --r: 6px; --r-lg: 12px; --r-sm: 4px;
+
+  /* Motion — Jakub polish primary, Jhey the cinematic entrances */
+  --ease:      cubic-bezier(0.22, 0.61, 0.30, 1);
+  --ease-out:  cubic-bezier(0.16, 0.84, 0.30, 1);
+  --ease-cine: cubic-bezier(0.65, 0, 0.20, 1);
+
+  /* Hall geometry (driven / overridden by JS) */
+  --persp: 1150px;
+  --progress: 0;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: var(--t-body);
+  line-height: 1.6;
+  color: var(--teal);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+/* Clip stray horizontal overflow WITHOUT making body a scroll container
+   (overflow-x:hidden on body breaks ScrollTrigger's window scroller). */
+html { overflow-x: clip; }
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-variation-settings: "opsz" 120;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  margin: 0 0 var(--sp-2);
+  color: var(--teal);
+}
+h1 em, h2 em, h3 em, .panel-lead em { font-style: italic; color: var(--terracotta-d); }
+p { margin: 0 0 var(--sp-2); }
+a { color: var(--terracotta-d); text-underline-offset: 3px; }
+button { font-family: inherit; cursor: pointer; color: inherit; }
+ul, ol { margin: 0; padding: 0; }
+:focus-visible {
+  outline: 2.5px solid var(--terracotta);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ---- Skip link ---- */
+.skip-link {
+  position: fixed; top: 10px; left: 10px; z-index: 200;
+  background: var(--teal); color: var(--paper);
+  padding: 10px 16px; border-radius: var(--r);
+  transform: translateY(-160%);
+  transition: transform .2s var(--ease);
+  text-decoration: none; font-weight: 500;
+}
+.skip-link:focus { transform: translateY(0); }
+
+/* ============================================================
+   STAGE — default (no-JS / no-3D) is a calm hero.
+   Only when <html class="is-immersive"> does it become the
+   fixed, pinned, walkable hall.
+   ============================================================ */
+.stage {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 50% 8%, var(--wall-cool), var(--wall-warm) 55%, #e2d6c0 100%);
+}
+
+/* Experience-only chrome is hidden until immersive mode turns on */
+.world, .farwall, .hallnav, .runway { display: none; }
+
+/* Environment layers */
+.env { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.env-ceiling {
+  position: absolute; inset: 0 0 55% 0;
+  background:
+    radial-gradient(60% 120% at 50% -30%, rgba(255,244,222,.9), rgba(255,244,222,0) 60%),
+    linear-gradient(#efe6d3, #efe6d300);
+}
+.env-walls {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(42,32,24,.30), rgba(42,32,24,0) 22%, rgba(42,32,24,0) 78%, rgba(42,32,24,.30)),
+    linear-gradient(#00000000 55%, rgba(42,32,24,.06));
+}
+/* A soft reflective floor */
+.env-floor {
+  position: absolute; left: -20%; right: -20%; bottom: -6%; height: 46%;
+  background:
+    linear-gradient(#00000000, rgba(120,96,60,.14) 40%, rgba(70,54,32,.22)),
+    radial-gradient(80% 120% at 50% -10%, rgba(255,240,214,.5), rgba(255,240,214,0) 70%);
+  transform: perspective(600px) rotateX(66deg);
+  transform-origin: top center;
+  filter: blur(.3px);
+}
+.env-warmth {
+  position: absolute; inset: 0;
+  background: radial-gradient(70% 55% at 50% 42%, rgba(226,163,60,.20), rgba(200,42,52,.05) 55%, rgba(200,42,52,0) 75%);
+  opacity: calc(0.9 - 0.65 * var(--progress));
+}
+.env-vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(115% 100% at 50% 46%, rgba(20,14,8,0) 52%, rgba(20,14,8,.34) 100%);
+}
+.env-grain {
+  position: absolute; inset: -50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: .05; mix-blend-mode: multiply;
+}
+
+/* ---- Welcome (hero) ---- */
+.welcome {
+  position: relative; z-index: 3;
+  text-align: center; padding: var(--gutter);
+  max-width: 40rem;
+}
+.welcome-eyebrow {
+  font-size: var(--t-label); letter-spacing: .28em; text-transform: uppercase;
+  color: var(--terracotta-d); font-weight: 600; margin-bottom: var(--sp-3);
+}
+.welcome-title {
+  margin: 0; line-height: .9;
+  display: flex; flex-direction: column; align-items: center; gap: .1em;
+}
+.welcome-ar {
+  font-family: var(--serif); font-size: clamp(3.4rem, 2rem + 8vw, 8rem);
+  color: var(--terracotta); line-height: 1; font-weight: 500;
+  text-shadow: 0 2px 30px rgba(226,163,60,.35);
+}
+.welcome-en {
+  font-family: var(--serif); font-size: var(--t-display); font-weight: 500;
+  font-variation-settings: "opsz" 144; letter-spacing: -.02em;
+}
+.welcome-lead {
+  font-family: var(--serif); font-style: italic;
+  font-size: var(--t-lead); color: var(--ink-soft);
+  margin-top: var(--sp-3);
+}
+.welcome-cue {
+  margin-top: var(--sp-5); font-size: var(--t-label);
+  letter-spacing: .26em; text-transform: uppercase; color: var(--ink-soft);
+}
+.is-immersive .welcome-cue::after {
+  content: ""; display: block; width: 1px; height: 34px; margin: 14px auto 0;
+  background: linear-gradient(var(--ink-soft), transparent);
+  animation: cue 2.4s var(--ease) infinite;
+}
+@keyframes cue { 0%,100% { transform: scaleY(.4); opacity:.3; transform-origin: top; } 50% { transform: scaleY(1); opacity:.9; } }
+
+/* ============================================================
+   IMMERSIVE MODE — the fixed, walkable hall
+   ============================================================ */
+.is-immersive .stage {
+  height: 100svh;
+  perspective: var(--persp);
+  perspective-origin: 50% 44%;
+  place-items: stretch;
+}
+.is-immersive .world {
+  display: block;
+  position: absolute; inset: 0;
+  transform-style: preserve-3d;
+  transform: translateZ(var(--camz, 0px));
+  z-index: 2;
+}
+.is-immersive .welcome {
+  position: absolute; z-index: 4;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  will-change: opacity, filter;
+}
+.is-immersive .farwall { display: block; }
+.is-immersive .hallnav { display: block; }
+
+/* ---- A hung painting = a portal ---- */
+/* Side + inward turn live here (one place to tune); --z stays inline. */
+.frame--l { --side: -22vw; --turn: 15deg; }
+.frame--r { --side: 22vw;  --turn: -15deg; }
+.frame {
+  position: absolute; left: 50%; top: 44%;
+  width: var(--fw, 32vmin);
+  text-decoration: none; color: inherit;
+  transform-style: preserve-3d;
+  transform:
+    translate(-50%, -50%)
+    translateX(var(--side))
+    translateZ(calc(var(--zoom, 0px) - var(--z)))
+    rotateY(var(--turn));
+  transition: filter .55s var(--ease-cine), opacity .55s var(--ease-cine);
+}
+/* The spotlight cast on the wall behind the canvas */
+.frame::before {
+  content: ""; position: absolute; z-index: -1;
+  left: 50%; top: 44%; width: 240%; height: 260%;
+  transform: translate(-50%, -50%) translateZ(-30px);
+  background: radial-gradient(50% 45% at 50% 42%, var(--spot), rgba(255,243,216,0) 68%);
+  opacity: .5; transition: opacity .5s var(--ease);
+}
+.frame-canvas {
+  display: block; position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--art, var(--paper-2));
+  /* linen mat + frame, built from layered shadows (Jakub) */
+  border: 10px solid #f4efe4;
+  box-shadow:
+    0 0 0 3px var(--frame-color),
+    0 0 0 4px rgba(0,0,0,.25),
+    0 30px 50px -18px rgba(20,14,8,.6),
+    inset 0 2px 18px rgba(0,0,0,.28);
+}
+.frame-canvas::after {
+  /* glass sheen */
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(115deg, rgba(255,255,255,.22), rgba(255,255,255,0) 34%);
+  pointer-events: none;
+}
+.frame-canvas--empty {
+  background: repeating-linear-gradient(45deg, #efe7d6, #efe7d6 12px, #e8dfcb 12px, #e8dfcb 24px);
+  border-color: #efe7d6;
+  box-shadow: 0 0 0 3px var(--hair), 0 22px 40px -20px rgba(20,14,8,.5), inset 0 0 40px rgba(120,96,60,.18);
+}
+.frame-art { position: absolute; inset: 0; display: grid; place-items: center; }
+.frame-art--life {
+  font-family: var(--serif); font-weight: 500; font-style: italic; color: #4a2f10;
+  font-size: clamp(1.6rem, 1rem + 2.6vw, 2.6rem); line-height: 1; text-align: center;
+  text-shadow: 0 2px 12px rgba(255,255,255,.35);
+}
+.frame-art--empty {
+  font-family: var(--hand); color: var(--ink-soft);
+  font-size: 2rem; text-align: center; line-height: 1.05;
+}
+
+/* Brass museum plaque under each frame */
+.plaque {
+  position: absolute; top: calc(100% + 16px); left: 50%;
+  transform: translateX(-50%);
+  width: 118%; padding: 10px 14px 11px;
+  border-radius: 3px;
+  background: linear-gradient(160deg, var(--brass-hi), var(--brass) 42%, var(--brass-lo));
+  box-shadow: 0 8px 16px -8px rgba(20,14,8,.7), inset 0 1px 0 rgba(255,255,255,.4), inset 0 -2px 4px rgba(0,0,0,.3);
+  text-align: center; color: #3a2a10;
+  transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+}
+.plaque-eyebrow {
+  display: block; font-size: .58rem; letter-spacing: .22em; text-transform: uppercase;
+  font-weight: 600; color: var(--brass-lo);
+}
+.plaque-title {
+  display: block; font-family: var(--serif); font-weight: 600;
+  font-size: 1rem; line-height: 1.1; margin: 2px 0 3px;
+  color: #2b1e0c; text-shadow: 0 1px 0 rgba(255,255,255,.3);
+}
+.plaque-title [lang="ar"] { font-family: var(--arabic); font-weight: 400; }
+.plaque-meta { display: block; font-size: .64rem; color: #5a441c; line-height: 1.3; }
+.plaque-enter {
+  display: inline-block; margin-top: 6px; font-size: .62rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--terracotta-d);
+  opacity: 0; transform: translateY(3px); transition: opacity .35s var(--ease), transform .35s var(--ease);
+}
+
+/* Saffron-lit "life" frame — the one accent */
+.frame--life .frame-canvas { box-shadow: 0 0 0 3px var(--saffron), 0 0 0 4px rgba(122,79,20,.5), 0 30px 60px -16px rgba(226,163,60,.55), inset 0 2px 18px rgba(0,0,0,.2); }
+.frame--life::before { background: radial-gradient(50% 45% at 50% 42%, #ffe6ad, rgba(255,230,173,0) 66%); opacity: .8; }
+
+/* Focus / hover / near states */
+.frame:is(:hover, :focus-visible) .plaque,
+.frame.is-focus .plaque { transform: translateX(-50%) translateY(-4px); box-shadow: 0 14px 22px -10px rgba(20,14,8,.75), inset 0 1px 0 rgba(255,255,255,.5); }
+.frame:is(:hover, :focus-visible) .plaque-enter,
+.frame.is-focus .plaque-enter { opacity: 1; transform: translateY(0); }
+.frame.is-focus::before { opacity: .95; }
+.frame--life.is-focus::before { opacity: 1; }
+.frame:is(:hover, :focus-visible) .frame-canvas { border-color: #fbf7ee; }
+
+/* Passed frames: dim + non-interactive */
+.frame.is-past { opacity: 0; pointer-events: none; }
+
+/* Entering a painting: dolly the frame toward the viewer + dissolve */
+.frame.is-entering {
+  --zoom: 1200px; opacity: 0; filter: blur(10px);
+  transition: transform .5s var(--ease-cine), opacity .5s var(--ease-cine), filter .5s var(--ease-cine);
+  z-index: 20;
+}
+
+/* ---- Far wall (end of hall) ---- */
+.farwall {
+  position: absolute; z-index: 3; inset: 0;
+  display: grid; place-content: center; text-align: center;
+  padding: var(--gutter); gap: 6px;
+  opacity: 0; pointer-events: none;
+  transition: opacity .6s var(--ease);
+}
+.farwall.is-here { opacity: 1; pointer-events: auto; }
+.farwall-ar { font-family: var(--serif); font-weight: 500; font-size: clamp(3rem, 2rem + 6vw, 6rem); color: var(--terracotta); margin: 0 0 var(--sp-2); text-shadow: 0 2px 30px rgba(226,163,60,.4); }
+.farwall-line { font-family: var(--serif); font-size: var(--t-h2); margin: 0; }
+.farwall-sub { color: var(--ink-soft); font-style: italic; font-family: var(--serif); margin: 6px 0 var(--sp-4); }
+
+/* ---- Hall nav (brass strip) ---- */
+.hallnav {
+  position: fixed; z-index: 30; left: 50%; bottom: 18px; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.hallnav-toggle {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(160deg, var(--brass-hi), var(--brass) 55%, var(--brass-lo));
+  color: #2b1e0c; border: none; border-radius: 999px;
+  padding: 9px 18px; font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+  box-shadow: 0 10px 22px -12px rgba(20,14,8,.8), inset 0 1px 0 rgba(255,255,255,.45);
+}
+.hallnav-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--terracotta); box-shadow: 0 0 8px var(--saffron); }
+.hallnav-list {
+  position: absolute; bottom: calc(100% + 10px); left: 50%;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 6px;
+  width: max-content; max-width: min(92vw, 620px);
+  list-style: none;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s linear .3s;
+}
+.hallnav.is-open .hallnav-list {
+  opacity: 1; visibility: visible; pointer-events: auto;
+  transform: translate(-50%, 0);
+  transition: opacity .3s var(--ease), transform .3s var(--ease);
+}
+.hallnav-list button {
+  background: rgba(246,242,236,.92); border: 1px solid var(--hair);
+  border-radius: 999px; padding: 7px 13px; font-size: .74rem; font-weight: 500;
+  color: var(--teal); backdrop-filter: blur(4px);
+  transition: background .2s var(--ease), transform .2s var(--ease);
+}
+.hallnav-list button:hover { background: #fff; transform: translateY(-1px); }
+.hallnav-list button[aria-current="true"] { background: var(--teal); color: var(--paper); border-color: var(--teal); }
+
+/* ============================================================
+   ROOM INDEX — semantic fallback + skip target (always in DOM)
+   ============================================================ */
+.room-index {
+  position: relative; z-index: 1;
+  padding: var(--sp-7) var(--gutter);
+  background: var(--paper);
+  border-top: 1px solid var(--hair);
+}
+.is-immersive .room-index { border-top: none; }
+.room-index-head { max-width: var(--maxw); margin: 0 auto var(--sp-5); }
+.ri-eyebrow { font-size: var(--t-label); letter-spacing: .24em; text-transform: uppercase; color: var(--terracotta-d); font-weight: 600; margin-bottom: var(--sp-2); }
+.ri-title { font-size: var(--t-h2); margin: 0 0 var(--sp-2); }
+.ri-lead { color: var(--ink-soft); max-width: 44ch; font-size: var(--t-lead); }
+.ri-grid {
+  max-width: var(--maxw); margin: 0 auto; list-style: none;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2px;
+  background: var(--hair); border: 1px solid var(--hair); border-radius: var(--r-lg); overflow: hidden;
+}
+.ri-grid a {
+  display: block; padding: var(--sp-4); background: var(--paper);
+  text-decoration: none; color: var(--teal);
+  transition: background .2s var(--ease), transform .2s var(--ease);
+}
+.ri-grid a:hover { background: var(--paper-2); }
+.ri-grid b { font-family: var(--serif); font-weight: 600; font-size: var(--t-h3); display: block; margin-bottom: 4px; }
+.ri-grid b [lang="ar"] { font-family: var(--arabic); font-weight: 400; }
+.ri-grid span { color: var(--ink-soft); font-size: .95rem; }
+
+/* ============================================================
+   PANELS — inside a painting
+   ============================================================ */
+.panel-layer { position: fixed; inset: 0; z-index: 100; }
+.panel-layer[hidden] { display: none; }
+.panel-scrim {
+  position: absolute; inset: 0;
+  background: rgba(22,16,10,.5); backdrop-filter: blur(6px);
+  opacity: 0; transition: opacity .4s var(--ease);
+}
+.panel-layer.is-open .panel-scrim { opacity: 1; }
+
+.panel {
+  position: absolute; inset: 0;
+  display: grid; grid-template-rows: auto 1fr;
+  overflow: hidden;
+}
+.panel[hidden] { display: none; }
+.panel-close {
+  position: sticky; top: 0; z-index: 2;
+  justify-self: start; margin: clamp(14px, 3vw, 26px);
+  background: rgba(246,242,236,.9); border: 1px solid var(--hair);
+  border-radius: 999px; padding: 9px 16px; font-size: .8rem; font-weight: 500;
+  color: var(--teal); backdrop-filter: blur(6px);
+  transition: background .2s var(--ease), transform .2s var(--ease);
+}
+.panel-close:hover { background: #fff; transform: translateX(-2px); }
+.panel-inner {
+  grid-row: 1 / 3;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+  padding: clamp(70px, 12vh, 130px) var(--gutter) var(--sp-7);
+  background: radial-gradient(120% 60% at 50% 0%, var(--wall-cool), var(--paper) 60%);
+}
+.panel-inner > * { max-width: 720px; margin-left: auto; margin-right: auto; }
+
+/* Panel open animation (materialize — Jakub) */
+.panel {
+  opacity: 0; transform: translateY(14px); filter: blur(6px);
+  transition: opacity .45s var(--ease-out), transform .45s var(--ease-out), filter .45s var(--ease-out);
+}
+.panel.is-active { opacity: 1; transform: none; filter: none; }
+
+.panel-eyebrow { font-size: var(--t-label); letter-spacing: .22em; text-transform: uppercase; color: var(--terracotta-d); font-weight: 600; margin-bottom: var(--sp-2); }
+.panel-title { font-size: clamp(2.1rem, 1.4rem + 3vw, 3.6rem); margin: 0 auto var(--sp-2); }
+.panel-title [lang="ar"] { font-family: var(--arabic); font-weight: 400; }
+.panel-by { font-size: var(--t-lead); color: var(--teal); margin-bottom: var(--sp-4); }
+.panel-hand { font-family: var(--hand); font-size: 1.35rem; color: var(--olive); display: block; margin-top: 2px; }
+.panel-hero { aspect-ratio: 16 / 7; border-radius: var(--r-lg); background: var(--art, var(--paper-2)); box-shadow: 0 26px 50px -26px rgba(20,14,8,.5), inset 0 0 0 8px #f4efe4, inset 0 0 0 11px var(--terracotta); margin-bottom: var(--sp-4); }
+.panel-lead { font-family: var(--serif); font-size: var(--t-lead); line-height: 1.5; color: var(--teal); margin-bottom: var(--sp-4); }
+.panel-body { color: var(--ink-soft); margin-bottom: var(--sp-4); }
+.panel-note { font-size: .85rem; color: var(--ink-soft); font-style: italic; }
+
+.exhibit-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: var(--sp-5); }
+.exhibit-thumbs .thumb { aspect-ratio: 1; border-radius: var(--r); background: var(--paper-3) var(--art, none) center/cover; box-shadow: inset 0 0 0 6px #f4efe4, inset 0 0 0 8px var(--terracotta), 0 8px 16px -10px rgba(20,14,8,.4); }
+
+.panel-rail { border-top: 1px solid var(--hair); padding-top: var(--sp-4); margin-bottom: var(--sp-5); }
+.panel-rail h3 { font-size: var(--t-h3); margin-bottom: var(--sp-3); }
+.past-list, .recurring-list { list-style: none; display: grid; gap: var(--sp-2); }
+.past-list li, .recurring-list li { display: flex; justify-content: space-between; gap: var(--sp-3); padding-bottom: var(--sp-2); border-bottom: 1px dotted var(--hair); }
+.past-list b, .recurring-list b { font-family: var(--serif); font-weight: 500; }
+.past-list span, .recurring-list span { color: var(--ink-soft); font-size: .9rem; text-align: right; }
+
+.menu-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--sp-4); margin-bottom: var(--sp-4); }
+.menu-col h3 { font-size: var(--t-h3); margin-bottom: var(--sp-2); color: var(--terracotta-d); }
+.menu-col ul { list-style: none; display: grid; gap: 8px; }
+.menu-col li { color: var(--teal); border-bottom: 1px dotted var(--hair); padding-bottom: 8px; }
+.menu-col em { font-style: italic; color: var(--olive); font-family: var(--serif); }
+
+.events-list { list-style: none; display: grid; gap: var(--sp-3); margin-bottom: var(--sp-5); counter-reset: e; }
+.events-list li { display: grid; grid-template-columns: auto 1fr; gap: var(--sp-3); padding-bottom: var(--sp-3); border-bottom: 1px solid var(--hair); }
+.events-list .ev-date { font-family: var(--serif); font-weight: 600; color: var(--terracotta-d); font-size: 1.1rem; line-height: 1.1; min-width: 3.4em; }
+.events-list .ev-date small { display: block; font-family: var(--sans); font-weight: 400; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+.events-list .ev-title { font-family: var(--serif); font-weight: 500; font-size: 1.12rem; }
+.events-list .ev-meta { color: var(--ink-soft); font-size: .9rem; }
+.events-list .ev-artist { font-family: var(--hand); color: var(--olive); font-size: 1.1rem; }
+
+.visit-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--sp-4); margin-bottom: var(--sp-3); }
+.visit-facts dt { font-size: var(--t-label); letter-spacing: .18em; text-transform: uppercase; color: var(--terracotta-d); font-weight: 600; margin-bottom: 6px; }
+.visit-facts dd { margin: 0; font-family: var(--serif); font-size: 1.1rem; line-height: 1.4; }
+
+.about-ar { font-family: var(--serif); font-weight: 500; font-size: clamp(3rem, 2rem + 6vw, 6.5rem); color: var(--saffron); line-height: .9; margin: 0 0 var(--sp-2); opacity: .9; }
+
+/* Buttons */
+.panel-cta { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-4); }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 22px; border-radius: 999px; font-weight: 600; font-size: .95rem;
+  text-decoration: none; border: 1.5px solid transparent;
+  transition: transform .2s var(--ease), background .2s var(--ease), box-shadow .2s var(--ease);
+}
+.btn:active { transform: scale(.97); }
+.btn--filled { background: var(--terracotta); color: #fff; box-shadow: 0 12px 24px -14px rgba(200,42,52,.9); }
+.btn--filled:hover { background: var(--terracotta-d); transform: translateY(-1px); }
+.btn--ghost { background: transparent; color: var(--teal); border-color: var(--teal); }
+.btn--ghost:hover { background: var(--teal); color: var(--paper); }
+
+/* ---- Call bar ---- */
+.call-bar {
+  position: fixed; z-index: 40; right: 16px; top: 16px;
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--teal); color: var(--paper);
+  padding: 9px 15px; border-radius: 999px; font-size: .78rem; font-weight: 600;
+  text-decoration: none; box-shadow: 0 10px 22px -12px rgba(20,14,8,.7);
+  transition: transform .2s var(--ease), background .2s var(--ease);
+}
+.call-bar:hover { background: var(--teal-2); transform: translateY(-1px); color: var(--paper); }
+
+/* Lock scroll when a panel is open */
+.panel-open, .panel-open body { overflow: hidden; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 720px) {
+  :root { --persp: 900px; --fw: 40vmin; }
+  .frame { --side: 0 !important; --turn: 0deg !important; top: 44%; }
+  .frame::before { opacity: .7; }
+  .plaque { width: 130%; }
+  .call-bar { top: auto; bottom: 74px; right: 14px; }
+  .hallnav { bottom: 14px; }
+  .welcome-lead { font-size: 1.05rem; }
+}
+
+/* On phones, hide the deep-3D world entirely and lean on the
+   room index — the hall metaphor needs width to read. */
+@media (max-width: 720px) and (pointer: coarse) {
+  .is-immersive.is-immersive .stage { position: relative; height: auto; min-height: 100svh; perspective: none; }
+  .is-immersive .world, .is-immersive .farwall, .is-immersive .hallnav { display: none; }
+  .is-immersive .welcome { position: relative; transform: none; top: auto; left: auto; }
+  .is-immersive .welcome-cue { display: none; }
+}
+
+/* ============================================================
+   REDUCED MOTION — no dolly, no parallax, instant panels.
+   The room becomes the calm hero + the semantic index.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .is-immersive .stage { position: relative !important; height: auto; min-height: 100svh; perspective: none; }
+  .world, .farwall, .hallnav, .runway { display: none !important; }
+  .is-immersive .welcome { position: relative; transform: none; top: auto; left: auto; }
+  .welcome-cue::after { animation: none; }
+  .panel, .panel-scrim, .plaque, .btn, .frame { transition: none !important; }
+  .panel { opacity: 1; transform: none; filter: none; }
+  * { scroll-behavior: auto !important; }
+}
+
+
+/* ============================================================
+   Purple Standard portfolio demo layer — added for the iPad showcase
+   build only. Not part of the client deliverable.
+   ============================================================ */
+
+/* Unfilled-fact markers are hidden in the demo; the sentences
+   they annotate read correctly without them. */
+.confirm { display: none !important; }
+
+/* Offline-safe map: the styled address card sits underneath and
+   is revealed whenever the Google embed cannot load. */
+.map-embed { position: relative; }
+.map-embed .map-offline {
+  display: flex; flex-direction: column; gap: .5rem;
+  align-items: center; justify-content: center; text-align: center;
+  min-height: 320px; padding: 1.5rem;
+  background:
+    repeating-linear-gradient(0deg,  rgba(0,0,0,.045) 0 1px, transparent 1px 34px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.045) 0 1px, transparent 1px 34px),
+    var(--paper-2, #f3efe9);
+  color: inherit;
+}
+.map-embed .map-offline svg { opacity: .8; }
+.map-embed .map-offline b { font-size: 1.05rem; }
+.map-embed .map-offline span { opacity: .72; font-size: .92rem; line-height: 1.5; }
+.map-embed iframe { position: relative; z-index: 1; }
+
+/* Discreet return-to-portfolio control (demo chrome). */
+#rvz-back {
+  position: fixed; z-index: 2147483000;
+  right: calc(env(safe-area-inset-right, 0px) + 16px);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .6rem .95rem .6rem .8rem;
+  font: 600 14px/1 ui-sans-serif, -apple-system, "Segoe UI", sans-serif;
+  letter-spacing: .01em; text-decoration: none;
+  color: #fff; background: rgba(24,24,27,.82);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  backdrop-filter: saturate(160%) blur(12px);
+  border: 1px solid rgba(255,255,255,.16); border-radius: 999px;
+  box-shadow: 0 6px 22px rgba(0,0,0,.26);
+  opacity: .5; transition: opacity .18s ease, transform .18s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+#rvz-back:hover, #rvz-back:focus-visible { opacity: 1; transform: translateY(-1px); }
+#rvz-back:active { opacity: 1; transform: scale(.97); }
+@media (hover: none) { #rvz-back { opacity: .72; } }
+@media print { #rvz-back { display: none; } }
+

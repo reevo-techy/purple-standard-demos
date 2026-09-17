@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" role="img" aria-label="A small espresso cup with steam on a wooden bar in warm window light">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EFE8DC"/>
+      <stop offset="1" stop-color="#E7DECC"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#A06A3A"/>
+      <stop offset="1" stop-color="#6E4523"/>
+    </linearGradient>
+    <radialGradient id="light" cx="0.85" cy="0.15" r="0.9">
+      <stop offset="0" stop-color="#FFE9B8" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#FFE9B8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cup" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F6F2EC"/>
+      <stop offset="1" stop-color="#D9CFBA"/>
+    </linearGradient>
+  </defs>
+  <rect width="560" height="420" fill="url(#bg)"/>
+  <rect width="560" height="420" fill="url(#light)"/>
+  <rect x="0" y="290" width="560" height="130" fill="url(#bar)"/>
+  <line x1="0" y1="290" x2="560" y2="290" stroke="#3A2516" stroke-width="1.5" opacity="0.55"/>
+  <!-- shadow -->
+  <ellipse cx="280" cy="318" rx="120" ry="10" fill="#3A2516" opacity="0.32"/>
+  <!-- saucer -->
+  <ellipse cx="280" cy="312" rx="110" ry="14" fill="#EFE8DC"/>
+  <ellipse cx="280" cy="309" rx="110" ry="12" fill="#F6F2EC"/>
+  <!-- cup body -->
+  <path d="M210 240 Q210 300 280 300 Q350 300 350 240 Z" fill="url(#cup)" stroke="#5A554E" stroke-width="1"/>
+  <!-- handle -->
+  <path d="M350 250 Q386 252 384 275 Q382 295 352 290" fill="none" stroke="#5A554E" stroke-width="3"/>
+  <!-- crema -->
+  <ellipse cx="280" cy="240" rx="62" ry="9" fill="#C82A34"/>
+  <ellipse cx="280" cy="239" rx="58" ry="7" fill="#A81F29"/>
+  <ellipse cx="270" cy="237" rx="14" ry="2.5" fill="#E2A33C" opacity="0.7"/>
+  <!-- steam -->
+  <g fill="none" stroke="#1F3D3A" stroke-width="1.6" opacity="0.5" stroke-linecap="round">
+    <path d="M258 220 Q252 200 262 180 Q272 160 260 140"/>
+    <path d="M278 220 Q286 200 276 180 Q268 160 278 140"/>
+    <path d="M298 220 Q294 200 304 180 Q314 160 302 140"/>
+  </g>
+  <!-- sprig of mint -->
+  <g transform="translate(370,300) rotate(20)">
+    <ellipse cx="0" cy="0" rx="14" ry="7" fill="#5C6B3A"/>
+    <ellipse cx="20" cy="-6" rx="11" ry="5" fill="#5C6B3A"/>
+    <ellipse cx="-16" cy="-4" rx="11" ry="5" fill="#5C6B3A"/>
+    <line x1="-22" y1="2" x2="32" y2="-4" stroke="#3F4A26" stroke-width="1.6"/>
+  </g>
+  <!-- distant window highlight -->
+  <rect x="40" y="60" width="160" height="120" fill="#F6F2EC" opacity="0.18"/>
+</svg>

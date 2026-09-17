@@ -1,0 +1,72 @@
+{
+  "_comment": "[CONFIRM] Replace with the real event calendar. The homepage strip renders the next 7 days from today and matches events by ISO date (YYYY-MM-DD). The full events page renders every event grouped by date. Schema documented in README.md.",
+  "events": [
+    {
+      "date": "2026-05-28",
+      "time": "7:00pm — 9:30pm",
+      "title": "Open Mic Night",
+      "artist": "hosted by the room",
+      "kind": "open-mic",
+      "description": "[CONFIRM] First Thursday of every month — poetry, song, anything that holds together for five minutes. Sign up at the bar from 6:30pm."
+    },
+    {
+      "date": "2026-05-30",
+      "time": "2:00pm — 4:00pm",
+      "title": "Artist Talk — Renata Souza",
+      "artist": "with Renata Souza",
+      "kind": "talk",
+      "description": "[CONFIRM] The artist behind 'Threads of the City' sits down to talk about textile, ink, and finding Toronto on a loom."
+    },
+    {
+      "date": "2026-06-01",
+      "time": "11:00am — 1:00pm",
+      "title": "Arabic Coffee Tasting",
+      "artist": "with the bar",
+      "kind": "tasting",
+      "description": "[CONFIRM] Three preparations, three regions, one long table. $15, includes pastry."
+    },
+    {
+      "date": "2026-06-04",
+      "time": "7:00pm — 9:00pm",
+      "title": "Sketch Night",
+      "artist": "drop-in, $5",
+      "kind": "workshop",
+      "description": "[CONFIRM] Bring a pad and a pen. We supply the coffee and the model. All levels."
+    },
+    {
+      "date": "2026-06-07",
+      "time": "Private",
+      "title": "Private booking — room reserved",
+      "kind": "private",
+      "description": "The cafe counter is open as usual; the back room is reserved for a private event."
+    },
+    {
+      "date": "2026-06-14",
+      "time": "1:00pm — 5:00pm",
+      "title": "Watercolour Workshop",
+      "artist": "with Priya Anand",
+      "kind": "workshop",
+      "description": "[CONFIRM] A half-day with returning artist Priya Anand. Materials included. 8 spots."
+    },
+    {
+      "date": "2026-06-21",
+      "time": "7:00pm — late",
+      "title": "Solstice Set — Live Music",
+      "artist": "[CONFIRM] artist TBA",
+      "kind": "music",
+      "description": "[CONFIRM] The longest day, lit by candles."
+    }
+  ],
+  "recurring": [
+    {
+      "when": "First Thursday of every month, 7pm",
+      "title": "Open Mic",
+      "blurb": "[CONFIRM] Sign up at the bar from 6:30. Five minutes each. Anything goes that holds together."
+    },
+    {
+      "when": "Sunday mornings, 10am",
+      "title": "Slow Sundays",
+      "blurb": "[CONFIRM] The room opens quietly. Bring a book. The Arabic coffee comes with cardamom."
+    }
+  ]
+}

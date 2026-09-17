@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" role="img" aria-label="Team member — placeholder portrait">
+  <rect width="600" height="750" fill="#E8F6F8"/>
+  <circle cx="500" cy="120" r="150" fill="#F4D9C2" opacity="0.55"/>
+  <g transform="translate(300 320)" fill="#10243C" opacity="0.85"><circle cx="0" cy="-46" r="40"/><path d="M-66 78C-66 22-36 2 0 2 36 2 66 22 66 78Z"/></g>
+  <text x="300" y="500" text-anchor="middle" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="30" font-weight="700" fill="#10243C">Team member</text>
+  <text x="300" y="536" text-anchor="middle" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="17" fill="#45566A">Your photography here</text>
+</svg>

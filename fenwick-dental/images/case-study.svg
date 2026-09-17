@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Before and after — placeholder">
+  <rect width="600" height="600" fill="#F4F1EA"/>
+  <rect width="300" height="600" fill="#FBEEE1"/>
+  <line x1="300" y1="0" x2="300" y2="600" stroke="#E3E0DA" stroke-width="2"/>
+  <g transform="translate(150 250)" fill="#10243C" opacity="0.6"><path d="M-38-12C-38-35-23-46-9-39-5-37-2-34 0-31 2-34 5-37 9-3923-46 38-35 38-12 38 15 30 30 22 39 16 45 8 21 0 21-8 21-16 45-22 39-30 30-38 15-38-12Z"/></g>
+  <g transform="translate(450 250)" fill="#10243C" opacity="0.88"><path d="M-38-12C-38-35-23-46-9-39-5-37-2-34 0-31 2-34 5-37 9-3923-46 38-35 38-12 38 15 30 30 22 39 16 45 8 21 0 21-8 21-16 45-22 39-30 30-38 15-38-12Z"/></g>
+  <text x="150" y="370" text-anchor="middle" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="24" font-weight="700" fill="#10243C">Before</text>
+  <text x="450" y="370" text-anchor="middle" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="24" font-weight="700" fill="#10243C">After</text>
+  <text x="300" y="540" text-anchor="middle" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="16" fill="#45566A">Your photography here</text>
+</svg>

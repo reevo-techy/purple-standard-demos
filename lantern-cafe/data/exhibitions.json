@@ -1,0 +1,44 @@
+{
+  "_comment": "[CONFIRM] Replace with the real current exhibition. To mark the room as between shows, set 'current' to null — the homepage gracefully shows 'Between shows — submit yours.' Schema is documented in README.md.",
+  "current": {
+    "title": "Threads of the City",
+    "artist": "Renata Souza",
+    "startDate": "2026-05-12",
+    "endDate": "2026-06-22",
+    "medium": "Textile + ink on linen",
+    "image": "images/exhibit-01.webp",
+    "statement": "[CONFIRM] A six-week meditation on the streets of Toronto through woven textile and sumi ink — Renata Souza's first solo show in Ontario. Replace this placeholder text with the artist's own words.",
+    "thumbs": [
+      "images/exhibit-thumb-01.webp",
+      "images/exhibit-thumb-02.webp",
+      "images/exhibit-thumb-03.webp",
+      "images/exhibit-thumb-04.webp"
+    ]
+  },
+  "upcoming": [
+    {
+      "title": "[CONFIRM] Next show",
+      "artist": "[CONFIRM]",
+      "startDate": "2026-06-26",
+      "endDate": "2026-08-03",
+      "medium": "[CONFIRM]"
+    }
+  ],
+  "past": [
+    {
+      "title": "[CONFIRM] Slow Light",
+      "artist": "[CONFIRM] Priya Anand",
+      "when": "Mar — Apr 2026"
+    },
+    {
+      "title": "[CONFIRM] Cardamom Years",
+      "artist": "[CONFIRM] Tomas Berg",
+      "when": "Jan — Feb 2026"
+    },
+    {
+      "title": "[CONFIRM] Quiet Geary",
+      "artist": "[CONFIRM] Group show, 6 Toronto artists",
+      "when": "Nov — Dec 2025"
+    }
+  ]
+}

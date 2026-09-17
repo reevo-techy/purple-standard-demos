@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" data-view="cafe">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lantern Art Cafe — walk the room · Toronto, Ontario</title>
+<meta name="description" content="Lantern is a café and a working art gallery at 118 Geary Avenue, Toronto. Walk the room: a hall of hung paintings you step into — the current show, the menu, this week's events, and the space itself." />
+<meta name="theme-color" content="#F6F2EC" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Lantern Art Cafe — walk the room" />
+<meta property="og:description" content="A café and a working art gallery in Toronto. Walk a hall of hung paintings and step into each one." />
+<meta property="og:locale" content="en_CA" />
+
+<!-- Fonts (already part of the Lantern brand) -->
+<link href="../assets/fonts/fraunces-inter-caveat-amiri-46a6b3.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/room.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F6F2EC'/%3E%3Crect x='7' y='6' width='18' height='20' fill='none' stroke='%23C82A34' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23E2A33C'/%3E%3C/svg%3E" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CafeOrCoffeeShop",
+      "name": "Lantern Art Cafe",
+      "address": { "@type": "PostalAddress", "streetAddress": "118 Geary Avenue", "addressLocality": "Toronto", "addressRegion": "ON", "addressCountry": "CA" },
+      "servesCuisine": "Coffee, Arabic coffee, tea, pastries",
+      "url": "https://lanternartcafe.ca/"
+    },
+    {
+      "@type": "ArtGallery",
+      "name": "Lantern Art Cafe — Gallery",
+      "address": { "@type": "PostalAddress", "streetAddress": "118 Geary Avenue", "addressLocality": "Toronto", "addressRegion": "ON", "addressCountry": "CA" },
+      "url": "https://lanternartcafe.ca/"
+    }
+  ]
+}
+</script>
+
+<!-- Purple Standard portfolio demo build -->
+<meta name="robots" content="noindex, nofollow" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Purple Standard" />
+<link rel="manifest" href="../manifest.webmanifest" />
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" />
+</head>
+
+<body>
+<a class="skip-link" href="#room-index">Skip the walk-through — jump to the list of rooms</a>
+
+<!-- ============================================================
+     THE STAGE — the hall you walk down.
+     In the full experience this is a fixed 3D room; with reduced
+     motion or without JS it collapses into #room-index below.
+     ============================================================ -->
+<main class="stage" id="stage" aria-label="Lantern — the room">
+
+  <!-- Environment: light, walls, floor, atmosphere (decorative) -->
+  <div class="env" aria-hidden="true">
+    <div class="env-ceiling"></div>
+    <div class="env-walls"></div>
+    <div class="env-floor"></div>
+    <div class="env-warmth"></div>
+    <div class="env-vignette"></div>
+    <div class="env-grain"></div>
+  </div>
+
+  <!-- The moving world: hung paintings along the hall.
+       Each frame is a real, labelled link (keyboard + screen-reader path);
+       the 3D is progressive sugar on top. -->
+  <div class="world" id="world">
+
+    <a class="frame frame--l" href="pages/gallery.html" data-open="gallery"
+       style="--z:1100px;">
+      <span class="frame-canvas" style="--art:linear-gradient(150deg,#7c8a52,#3f5340 60%,#1f3d3a);">
+        <span class="frame-art frame-art--threads"></span>
+      </span>
+      <span class="plaque">
+        <span class="plaque-eyebrow">Now showing</span>
+        <span class="plaque-title">Threads of the City</span>
+        <span class="plaque-meta">Renata Souza · textile &amp; ink on linen · until 22 Jun</span>
+        <span class="plaque-enter">Step in <span aria-hidden="true">→</span></span>
+      </span>
+    </a>
+
+    <a class="frame frame--r" href="pages/menu.html" data-open="menu"
+       style="--z:2000px;">
+      <span class="frame-canvas" style="--art:radial-gradient(circle at 38% 34%, #e9c17a, #c82a34 55%, #7a2f15);">
+        <span class="frame-art frame-art--stilllife"></span>
+      </span>
+      <span class="plaque">
+        <span class="plaque-eyebrow">The bar</span>
+        <span class="plaque-title">A Still-Life, Warm</span>
+        <span class="plaque-meta">coffee, cardamom &amp; the long table · daily</span>
+        <span class="plaque-enter">See the menu <span aria-hidden="true">→</span></span>
+      </span>
+    </a>
+
+    <a class="frame frame--l" href="pages/events.html" data-open="events"
+       style="--z:2900px;">
+      <span class="frame-canvas" style="--art:linear-gradient(160deg,#2a4b47,#16302e 70%);">
+        <span class="frame-art frame-art--week"></span>
+      </span>
+      <span class="plaque">
+        <span class="plaque-eyebrow">This week</span>
+        <span class="plaque-title">The Room, After Dark</span>
+        <span class="plaque-meta">open mic · workshops · live sets</span>
+        <span class="plaque-enter">What's on <span aria-hidden="true">→</span></span>
+      </span>
+    </a>
+
+    <a class="frame frame--r frame--life" href="pages/about.html" data-open="about"
+       style="--z:3800px;">
+      <span class="frame-canvas" style="--art:radial-gradient(circle at 50% 40%, #f3cf87, #e2a33c 45%, #a8641b);">
+        <span class="frame-art frame-art--life">Lantern</span>
+      </span>
+      <span class="plaque">
+        <span class="plaque-eyebrow">The word on the wall</span>
+        <span class="plaque-title">The Word: Lantern</span>
+        <span class="plaque-meta">light · the room, in daylight</span>
+        <span class="plaque-enter">About us <span aria-hidden="true">→</span></span>
+      </span>
+    </a>
+
+    <a class="frame frame--l" href="pages/visit.html" data-open="visit"
+       style="--z:4700px;">
+      <span class="frame-canvas" style="--art:linear-gradient(180deg,#3a4a63,#1f2c3d 70%,#101826);">
+        <span class="frame-art frame-art--dusk"></span>
+      </span>
+      <span class="plaque">
+        <span class="plaque-eyebrow">Find us</span>
+        <span class="plaque-title">118 Geary, at Dusk</span>
+        <span class="plaque-meta">Toronto, Ontario · hours &amp; directions</span>
+        <span class="plaque-enter">Plan a visit <span aria-hidden="true">→</span></span>
+      </span>
+    </a>
+
+    <a class="frame frame--r frame--empty" href="pages/gallery.html#submit" data-open="submit"
+       style="--z:5600px;">
+      <span class="frame-canvas frame-canvas--empty">
+        <span class="frame-art frame-art--empty">Your work<br>here</span>
+      </span>
+      <span class="plaque">
+        <span class="plaque-eyebrow">Open call</span>
+        <span class="plaque-title">An Empty Frame</span>
+        <span class="plaque-meta">Toronto artists · the wall is yours next</span>
+        <span class="plaque-enter">Show your work <span aria-hidden="true">→</span></span>
+      </span>
+    </a>
+
+  </div><!-- /.world -->
+
+  <!-- Hero: the moment you walk in. Fades as you start down the hall. -->
+  <div class="welcome" id="welcome">
+    <p class="welcome-eyebrow">Toronto, Ontario · a café &amp; a working gallery</p>
+    <h1 class="welcome-title"><span class="welcome-ar">Lantern</span><span class="welcome-en">Art Cafe</span></h1>
+    <p class="welcome-lead">You don't open this website. You walk into the room.</p>
+    <p class="welcome-cue" aria-hidden="true">scroll to walk in</p>
+  </div>
+
+  <!-- End of the hall -->
+  <div class="farwall" id="farwall" aria-hidden="true">
+    <p class="farwall-ar">Lantern</p>
+    <p class="farwall-line">You've reached the end of the room.</p>
+    <p class="farwall-sub">The coffee's still on. The wall changes every six weeks.</p>
+    <a class="btn btn--filled" href="pages/visit.html" data-open="visit">Come in for real →</a>
+  </div>
+
+  <!-- Brass plaque nav — always available, shows where you are -->
+  <nav class="hallnav" aria-label="Rooms">
+    <button class="hallnav-toggle" type="button" aria-expanded="false" aria-controls="hallnav-list">
+      <span class="hallnav-dot" aria-hidden="true"></span> The room
+    </button>
+    <ul class="hallnav-list" id="hallnav-list">
+      <li><button type="button" data-goto="gallery">Now showing</button></li>
+      <li><button type="button" data-goto="menu">The bar</button></li>
+      <li><button type="button" data-goto="events">This week</button></li>
+      <li><button type="button" data-goto="about">Lantern</button></li>
+      <li><button type="button" data-goto="visit">Visit</button></li>
+      <li><button type="button" data-goto="submit">Open call</button></li>
+    </ul>
+  </nav>
+
+  <!-- Scroll runway: gives the pinned stage its length to scrub through -->
+  <div class="runway" id="runway" aria-hidden="true"></div>
+</main>
+
+<!-- ============================================================
+     ROOM INDEX — the graceful fallback / skip target.
+     This is the whole site as a plain, semantic list. Visible
+     when JS is off or motion is reduced; always the a11y anchor.
+     ============================================================ -->
+<section class="room-index" id="room-index" aria-label="Everything in the room">
+  <header class="room-index-head">
+    <p class="ri-eyebrow">Lantern Art Cafe</p>
+    <h2 class="ri-title">The whole room, as a list</h2>
+    <p class="ri-lead">118 Geary Avenue, Toronto, Ontario. A café and a working art gallery. Pick a room.</p>
+  </header>
+  <ul class="ri-grid">
+    <li><a href="pages/gallery.html" data-open="gallery"><b>Now showing</b><span>Threads of the City · Renata Souza</span></a></li>
+    <li><a href="pages/menu.html" data-open="menu"><b>The bar</b><span>Coffee, cardamom &amp; the long table</span></a></li>
+    <li><a href="pages/events.html" data-open="events"><b>This week</b><span>Open mic, workshops &amp; live sets</span></a></li>
+    <li><a href="pages/about.html" data-open="about"><b>Lantern</b><span>The room, and the word on the wall</span></a></li>
+    <li><a href="pages/visit.html" data-open="visit"><b>Visit</b><span>Hours, directions &amp; booking</span></a></li>
+    <li><a href="pages/gallery.html#submit" data-open="submit"><b>Open call</b><span>Show your work on the wall</span></a></li>
+  </ul>
+</section>
+
+<!-- ============================================================
+     PANELS — what's "inside" each painting. Materialize over the
+     hall. Real, semantic content (also good for SEO / no-motion).
+     ============================================================ -->
+<div class="panel-layer" id="panel-layer" hidden>
+  <div class="panel-scrim" data-close></div>
+
+  <!-- NOW SHOWING -->
+  <article class="panel" id="panel-gallery" role="dialog" aria-modal="true" aria-labelledby="panel-gallery-t" tabindex="-1" hidden>
+    <button class="panel-close" type="button" data-close aria-label="Back to the room">← back to the room</button>
+    <div class="panel-inner">
+      <p class="panel-eyebrow">Now showing · until 22 June 2026</p>
+      <h2 class="panel-title" id="panel-gallery-t">Threads of the City</h2>
+      <p class="panel-by">Renata Souza <span class="panel-hand">first solo show in Ontario</span></p>
+      <div class="panel-hero" style="--art:linear-gradient(150deg,#7c8a52,#3f5340 60%,#1f3d3a);" aria-hidden="true"></div>
+      <p class="panel-lead">A six-week meditation on the streets of Toronto, worked in textile and sumi ink on linen: the city rewoven, thread by thread.</p>
+      <div class="exhibit-thumbs" id="exhibit-thumbs" aria-label="Works in the show"></div>
+      <div class="panel-rail">
+        <h3>The wall, before</h3>
+        <ul class="past-list" id="past-list"></ul>
+      </div>
+      <div class="panel-cta">
+        <a class="btn btn--filled" href="pages/gallery.html">Full exhibition page</a>
+        <button class="btn btn--ghost" type="button" data-goto="submit">Show your own work</button>
+      </div>
+    </div>
+  </article>
+
+  <!-- MENU -->
+  <article class="panel" id="panel-menu" role="dialog" aria-modal="true" aria-labelledby="panel-menu-t" tabindex="-1" hidden>
+    <button class="panel-close" type="button" data-close aria-label="Back to the room">← back to the room</button>
+    <div class="panel-inner">
+      <p class="panel-eyebrow">The bar · open daily</p>
+      <h2 class="panel-title" id="panel-menu-t">A Still-Life, Warm</h2>
+      <p class="panel-lead">Espresso and slow coffee, Arabic coffee with cardamom, loose-leaf tea, and a short table of things baked that morning. Sit under the current show.</p>
+      <div class="menu-cols">
+        <div class="menu-col">
+          <h3>Coffee</h3>
+          <ul><li>Espresso &amp; macchiato</li><li>Flat white · latte · cortado</li><li>Filter, changed daily</li><li><em>Arabic coffee, cardamom</em></li></ul>
+        </div>
+        <div class="menu-col">
+          <h3>Tea &amp; more</h3>
+          <ul><li>Loose-leaf black &amp; green</li><li>Mint · rose · chamomile</li><li>Hot chocolate</li><li>Chilled, in summer</li></ul>
+        </div>
+        <div class="menu-col">
+          <h3>The short table</h3>
+          <ul><li>Morning pastries</li><li>Date &amp; olive-oil cake</li><li>Toasts &amp; a soup of the day</li><li>Sweets with the coffee</li></ul>
+        </div>
+      </div>
+      <p class="panel-note">Full, current menu &amp; prices live on the menu page. This is the shape of it.</p>
+      <div class="panel-cta">
+        <a class="btn btn--filled" href="pages/menu.html">See the full menu</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- EVENTS -->
+  <article class="panel" id="panel-events" role="dialog" aria-modal="true" aria-labelledby="panel-events-t" tabindex="-1" hidden>
+    <button class="panel-close" type="button" data-close aria-label="Back to the room">← back to the room</button>
+    <div class="panel-inner">
+      <p class="panel-eyebrow">This week &amp; ahead</p>
+      <h2 class="panel-title" id="panel-events-t">The Room, After Dark</h2>
+      <p class="panel-lead">Open mic on the first Thursday, workshops, tastings, and the odd live set. Most nights the counter stays open late.</p>
+      <ol class="events-list" id="events-list"></ol>
+      <div class="panel-rail">
+        <h3>Every week</h3>
+        <ul class="recurring-list" id="recurring-list"></ul>
+      </div>
+      <div class="panel-cta">
+        <a class="btn btn--filled" href="pages/events.html">Full calendar</a>
+        <a class="btn btn--ghost" href="pages/visit.html#book" data-open="visit">Book the space</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- ABOUT -->
+  <article class="panel panel--about" id="panel-about" role="dialog" aria-modal="true" aria-labelledby="panel-about-t" tabindex="-1" hidden>
+    <button class="panel-close" type="button" data-close aria-label="Back to the room">← back to the room</button>
+    <div class="panel-inner">
+      <p class="about-ar" aria-hidden="true">Lantern</p>
+      <p class="panel-eyebrow">The room</p>
+      <h2 class="panel-title" id="panel-about-t">Lantern means light</h2>
+      <p class="panel-lead">Two things share one room here: a café and a working gallery, given equal weight. The word <em>Lantern</em> is painted on the far wall. It isn't a slogan. It's the whole idea: a room where people, coffee, and art are alive in the same light.</p>
+      <p class="panel-body">Mornings are café-warm. Evenings tip toward the gallery. The wall changes every six weeks, always making space for Toronto's own artists. Come for the coffee; stay because something on the wall stopped you.</p>
+      <div class="panel-cta">
+        <a class="btn btn--filled" href="pages/about.html">More about us</a>
+        <a class="btn btn--ghost" href="pages/visit.html" data-open="visit">Find the room</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- VISIT -->
+  <article class="panel" id="panel-visit" role="dialog" aria-modal="true" aria-labelledby="panel-visit-t" tabindex="-1" hidden>
+    <button class="panel-close" type="button" data-close aria-label="Back to the room">← back to the room</button>
+    <div class="panel-inner">
+      <p class="panel-eyebrow">Find us</p>
+      <h2 class="panel-title" id="panel-visit-t">118 Geary Avenue</h2>
+      <p class="panel-lead">On Geary in Toronto, Ontario. Walk in, or book the back room for your own night.</p>
+      <dl class="visit-facts">
+        <div><dt>Address</dt><dd>118 Geary Avenue<br>Toronto, ON</dd></div>
+        <div><dt>Hours</dt><dd>Mon–Fri 8am–late<br>Sat–Sun 9am–late</dd></div>
+        <div><dt>The gallery</dt><dd>Open whenever the café is<br>New show every 6 weeks</dd></div>
+      </dl>
+      <p class="panel-note">Times shown are placeholders until confirmed for launch.</p>
+      <div class="panel-cta">
+        <a class="btn btn--filled" href="pages/visit.html">Directions &amp; booking</a>
+        <a class="btn btn--ghost" href="pages/visit.html#book" data-open="visit">Book the space</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- SUBMIT / OPEN CALL -->
+  <article class="panel" id="panel-submit" role="dialog" aria-modal="true" aria-labelledby="panel-submit-t" tabindex="-1" hidden>
+    <button class="panel-close" type="button" data-close aria-label="Back to the room">← back to the room</button>
+    <div class="panel-inner">
+      <p class="panel-eyebrow">Open call · Toronto artists</p>
+      <h2 class="panel-title" id="panel-submit-t">The next wall is yours</h2>
+      <p class="panel-lead">There's always an empty frame in the room. If you make work and you're near Toronto, we want to see it: painting, textile, photography, print, anything that holds a wall for six weeks.</p>
+      <p class="panel-body">Send a few images, a line about the work, and roughly how much wall you'd need. We answer every submission.</p>
+      <div class="panel-cta">
+        <a class="btn btn--filled" href="pages/gallery.html#submit">Show your work</a>
+        <a class="btn btn--ghost" href="mailto:hello@lanternartcafe.ca?subject=Show%20my%20work%20at%20Lantern">Email the room</a>
+      </div>
+    </div>
+  </article>
+</div>
+
+<!-- Persistent call bar (mobile-friendly, always reachable) -->
+<a class="call-bar" href="tel:+14165550148" aria-label="Call Lantern">
+  <span aria-hidden="true">☎</span> Call the room
+</a>
+
+<!-- GSAP (progressive enhancement). If these fail to load, room.js
+     detects it and falls back to the static room index. -->
+<script src="js/gsap.min.js" defer></script>
+<script src="js/ScrollTrigger.min.js" defer></script>
+<script src="js/room.js" defer></script>
+
+<a id="rvz-back" href="../index.html" aria-label="Back to the Purple Standard portfolio">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M15 18l-6-6 6-6"/>
+  </svg>Portfolio</a>
+<script src="../assets/demo.js" defer></script>
+</body>
+</html>

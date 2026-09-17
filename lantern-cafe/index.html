@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js no-paint">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lantern Art Cafe — painted on wet paper · Toronto, Ontario</title>
+<meta name="description" content="A café you can drink and a gallery you can walk into, in the same warm light. Lantern Art Cafe, 118 Geary Avenue, Toronto — the current show, the cardamom coffee, this week's events, painted onto the page." />
+<meta name="theme-color" content="#F4EAD9" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Lantern Art Cafe — painted on wet paper" />
+<meta property="og:description" content="A café and a working gallery in Toronto, Ontario, in the same warm light." />
+
+<link href="../assets/fonts/newsreader-hankengrotesk-caveat-amiri-b4d78f.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/watercolour.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F4EAD9'/%3E%3Cpath d='M9 8h4v16H9zM19 8h4v16h-4z' fill='%23C02B32'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23E2A33C'/%3E%3C/svg%3E" />
+
+<!-- Purple Standard portfolio demo build -->
+<meta name="robots" content="noindex, nofollow" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Purple Standard" />
+<link rel="manifest" href="../manifest.webmanifest" />
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" />
+</head>
+
+<body>
+
+<!-- ============================================================
+     PAINT ENGINE — SVG filters that make edges bleed like paint
+     ============================================================ -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <defs>
+    <!-- organic bleed for wash edges -->
+    <filter id="bleed" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.016" numOctaves="4" seed="7" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="34" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <!-- fibrous paper grain -->
+    <filter id="paperGrain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="g" stitchTiles="stitch" />
+      <feColorMatrix in="g" type="matrix"
+        values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0" />
+    </filter>
+  </defs>
+</svg>
+
+<!-- The sheet -->
+<div class="paper-field" aria-hidden="true"></div>
+<div class="paper-grain" aria-hidden="true"></div>
+<div class="paper-vignette" aria-hidden="true"></div>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<header class="topbar">
+  <a class="brandmark" href="#top">Lantern</a>
+  <nav class="topnav" aria-label="Sections">
+    <a href="#showing">Now showing</a>
+    <a href="#bar">The bar</a>
+    <a href="#week">This week</a>
+    <a href="#life">Lantern</a>
+    <a href="#visit">Visit</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" aria-label="Welcome to Lantern">
+    <div class="hero-blooms" aria-hidden="true">
+      <span class="wash wash--terracotta" style="width:52vmax;height:52vmax;left:-6vmax;top:-8vmax;"></span>
+      <span class="wash wash--saffron"    style="width:42vmax;height:42vmax;right:-8vmax;top:6vmax;"></span>
+      <span class="wash wash--sage"       style="width:38vmax;height:38vmax;left:20vmax;bottom:-14vmax;opacity:0.5;"></span>
+      <span class="wash wash--mulberry"   style="width:26vmax;height:26vmax;right:12vmax;bottom:-6vmax;opacity:0.4;"></span>
+    </div>
+
+    <div class="hero-inner">
+      <p class="hero-eyebrow">118 Geary Avenue · Toronto, Ontario</p>
+      <p class="hero-ar" aria-hidden="true">Lantern</p>
+      <h1 class="hero-title">
+        <span class="word">Lantern</span> <span class="word"><em>Art</em></span> <span class="word">Cafe</span>
+      </h1>
+      <p class="hero-lead">A café you can drink and a gallery you can walk into, laid down in the same warm light. The walls are repainted every six weeks.</p>
+    </div>
+
+    <div class="hero-cue" aria-hidden="true">
+      scroll to let it dry
+      <svg viewBox="0 0 24 30"><path d="M12 2v20M5 15l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </section>
+
+  <!-- brush divider -->
+  <svg class="brush-divider" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M20 60 C 200 20, 360 78, 560 46 S 940 20, 1180 52" stroke="#C02B32" stroke-width="10" style="filter:url(#bleed)"/>
+  </svg>
+
+  <!-- ============================================================
+       NOW SHOWING
+       ============================================================ -->
+  <section class="section showing" id="showing" aria-labelledby="showing-t">
+    <span class="wash wash--sage section-wash" aria-hidden="true" style="width:34vmax;height:34vmax;right:-8vmax;top:4vmax;opacity:0.4;"></span>
+    <div class="showing-grid">
+      <div class="frame reveal">
+        <div class="frame-canvas" role="img" aria-label="Threads of the City — woven textile and sumi ink, in sage and deep teal"></div>
+        <span class="frame-plate">Renata Souza · Threads of the City</span>
+      </div>
+      <div class="showing-meta">
+        <p class="eyebrow reveal">On the wall now</p>
+        <h3 class="reveal" id="showing-t">Threads of the City</h3>
+        <p class="by reveal">by Renata Souza</p>
+        <p class="reveal">Six weeks of Toronto rewoven thread by thread: textile and sumi ink on linen, and Renata's first solo show in Ontario. Hung until the 22nd of June.</p>
+        <div class="tag-row reveal">
+          <span class="tag">Textile + ink on linen</span>
+          <span class="tag">Until 22 June</span>
+          <span class="tag">First Ontario solo</span>
+        </div>
+        <p style="margin-top:1.6rem" class="reveal"><a class="btn btn--ghost" href="pages/gallery.html">See the full show →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       THE BAR — painted still-life menu
+       ============================================================ -->
+  <section class="section bar" id="bar" aria-labelledby="bar-t">
+    <span class="wash wash--terracotta section-wash" aria-hidden="true" style="width:40vmax;height:40vmax;left:-12vmax;top:-6vmax;opacity:0.32;"></span>
+    <div class="section-head">
+      <span class="eyebrow reveal">A still-life, warm</span>
+      <h2 class="section-title reveal" id="bar-t">The bar keeps <em>the same hours as the light.</em></h2>
+      <p class="lead reveal">Espresso and slow coffee, Arabic coffee ground with cardamom, loose-leaf tea, and a short table of what was baked that morning, all served under whatever is on the wall.</p>
+    </div>
+    <div class="bar-cols">
+      <div class="bar-col reveal">
+        <h3>Coffee</h3>
+        <ul>
+          <li><span>Espresso · macchiato</span><span class="price">3.5</span></li>
+          <li><span>Flat white · latte · cortado</span><span class="price">5</span></li>
+          <li><span>Filter, changed daily</span><span class="price">4</span></li>
+          <li><span><em>Arabic coffee, cardamom</em></span><span class="price">4.5</span></li>
+        </ul>
+      </div>
+      <div class="bar-col reveal">
+        <h3>Tea &amp; more</h3>
+        <ul>
+          <li><span>Loose-leaf black &amp; green</span><span class="price">4</span></li>
+          <li><span>Mint · rose · chamomile</span><span class="price">4</span></li>
+          <li><span>Hot chocolate</span><span class="price">4.5</span></li>
+          <li><span>Chilled, in summer</span><span class="price">—</span></li>
+        </ul>
+      </div>
+      <div class="bar-col reveal">
+        <h3>The short table</h3>
+        <ul>
+          <li><span>Morning pastries</span><span class="price">3</span></li>
+          <li><span><em>Date &amp; olive-oil cake</em></span><span class="price">5</span></li>
+          <li><span>Toasts &amp; soup of the day</span><span class="price">8</span></li>
+          <li><span>Sweets with the coffee</span><span class="price">3</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="bar-note reveal">Prices are a sketch until launch. The full menu lives on the <a href="pages/menu.html">menu page</a>.</p>
+  </section>
+
+  <!-- running ribbon -->
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon-track">
+      <span>coffee, with cardamom <span class="dot">·</span></span>
+      <span>a wall that changes <span class="dot">·</span></span>
+      <span>a lantern, always lit <span class="dot">·</span></span>
+      <span>slow Sundays <span class="dot">·</span></span>
+      <span>sketch nights <span class="dot">·</span></span>
+      <span>open mic, first Thursday <span class="dot">·</span></span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       THIS WEEK
+       ============================================================ -->
+  <section class="section week" id="week" aria-labelledby="week-t">
+    <span class="wash wash--teal section-wash" aria-hidden="true" style="width:36vmax;height:36vmax;right:-10vmax;bottom:-6vmax;opacity:0.28;"></span>
+    <div class="section-head">
+      <span class="eyebrow reveal">After the coffee goes cold</span>
+      <h2 class="section-title reveal" id="week-t">This week in the room</h2>
+      <p class="lead reveal">Most nights the counter stays open late. These are the ones worth clearing an evening for.</p>
+    </div>
+    <ul class="week-list">
+      <li class="week-item reveal">
+        <div class="week-date">May <b>28</b></div>
+        <div class="week-main"><h4>Open Mic Night</h4><p>First Thursday of the month: poetry, song, anything that holds together for five minutes. Sign up at the bar from 6:30.</p></div>
+        <div class="week-when">7:00 – 9:30pm</div>
+      </li>
+      <li class="week-item reveal">
+        <div class="week-date">May <b>30</b></div>
+        <div class="week-main"><h4>Artist Talk — Renata Souza</h4><p>The maker of <em>Threads of the City</em> on textile, ink, and finding a whole town on a loom.</p></div>
+        <div class="week-when">2:00 – 4:00pm</div>
+      </li>
+      <li class="week-item reveal">
+        <div class="week-date">Jun <b>01</b></div>
+        <div class="week-main"><h4>Arabic Coffee Tasting</h4><p>Three preparations, three regions, one long table. $15, pastry included.</p></div>
+        <div class="week-when">11:00am – 1:00pm</div>
+      </li>
+      <li class="week-item reveal">
+        <div class="week-date">Jun <b>04</b></div>
+        <div class="week-main"><h4>Sketch Night</h4><p>Bring a pad and a pen; we supply the coffee and the model. All levels. Drop-in $5.</p></div>
+        <div class="week-when">7:00 – 9:00pm</div>
+      </li>
+      <li class="week-item reveal">
+        <div class="week-date">Jun <b>14</b></div>
+        <div class="week-main"><h4>Watercolour Workshop — Priya Anand</h4><p>A half-day with returning artist Priya Anand. Materials in; eight seats.</p></div>
+        <div class="week-when">1:00 – 5:00pm</div>
+      </li>
+    </ul>
+    <p style="margin-top:2rem" class="reveal"><a class="btn btn--ghost" href="pages/events.html">The whole calendar →</a></p>
+  </section>
+
+  <!-- brush divider -->
+  <svg class="brush-divider" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M30 40 C 260 78, 420 18, 640 52 S 980 82, 1170 40" stroke="#E2A33C" stroke-width="9" style="filter:url(#bleed)"/>
+  </svg>
+
+  <!-- ============================================================
+       THE WORD — LANTERN paints itself
+       ============================================================ -->
+  <section class="word-life" id="life" aria-labelledby="life-t">
+    <span class="wash wash--terracotta section-wash" aria-hidden="true" style="width:44vmax;height:44vmax;left:50%;top:50%;transform:translate(-50%,-50%);opacity:0.35;"></span>
+    <span class="wash wash--saffron section-wash" aria-hidden="true" style="width:30vmax;height:30vmax;left:20%;top:20%;opacity:0.3;"></span>
+    <p class="life-ar" aria-hidden="true">Lantern</p>
+    <p class="life-caption" id="life-t"><b>Lantern</b> is the light left on for you. It isn't a slogan on the wall; it's the whole idea: a room where people, coffee, and art are all alive in the same warm light. Come for the coffee. Stay because something stopped you.</p>
+  </section>
+
+  <!-- ============================================================
+       OPEN CALL — an empty frame
+       ============================================================ -->
+  <section class="section" aria-labelledby="call-t">
+    <div class="opencall-frame reveal">
+      <p class="eyebrow" style="transform:rotate(-2deg)">Open call · Toronto artists</p>
+      <h3 id="call-t">The next wall is yours</h3>
+      <p>There's always one empty frame in the room. If you make work near Toronto (painting, textile, photography, print), send a few images and roughly how much wall you'd need. We answer every one.</p>
+      <a class="btn btn--fill" href="mailto:hello@lanternartcafe.ca?subject=Show%20my%20work%20at%20Lantern">Show your work</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       VISIT / FOOTER
+       ============================================================ -->
+  <footer class="visit" id="visit">
+    <span class="wash wash--teal section-wash" aria-hidden="true" style="width:40vmax;height:40vmax;left:-12vmax;bottom:-14vmax;opacity:0.3;"></span>
+    <div class="visit-grid">
+      <div>
+        <span class="eyebrow reveal">Find the room</span>
+        <h2 class="reveal">Come in for real</h2>
+        <p class="addr reveal">118 Geary Avenue, Toronto, Ontario</p>
+        <p style="margin-top:1.4rem" class="reveal">
+          <a class="btn btn--fill" href="pages/visit.html">Directions &amp; booking →</a>
+        </p>
+      </div>
+      <dl class="visit-facts reveal">
+        <div><dt>Hours</dt><dd>Mon–Fri 8am–late<br>Sat–Sun 9am–late</dd></div>
+        <div><dt>The gallery</dt><dd>Open whenever the café is<br>A new show every six weeks</dd></div>
+        <div><dt>Say hello</dt><dd><a href="mailto:hello@lanternartcafe.ca">hello@lanternartcafe.ca</a></dd></div>
+      </dl>
+    </div>
+    <div class="footer-base">
+      <span>Lantern Art Cafe</span>
+      <span>Toronto, Ontario · a café &amp; a working gallery</span>
+      <span>Times &amp; prices are placeholders until launch.</span>
+    </div>
+  </footer>
+
+</main>
+
+<!-- GSAP (progressive enhancement). If it fails, watercolour.js
+     reveals everything statically — the page stays fully readable. -->
+<script src="js/gsap.min.js" defer></script>
+<script src="js/ScrollTrigger.min.js" defer></script>
+<script>document.documentElement.classList.remove("no-paint");</script>
+<script src="js/watercolour.js" defer></script>
+
+<a id="rvz-back" href="../index.html" aria-label="Back to the Purple Standard portfolio">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M15 18l-6-6 6-6"/>
+  </svg>Portfolio</a>
+<script src="../assets/demo.js" defer></script>
+</body>
+</html>

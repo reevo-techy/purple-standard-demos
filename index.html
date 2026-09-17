@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Purple Standard — some of our designs</title>
+<meta name="description" content="Three websites, three bespoke design languages. Tap any one to open it." />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#16181D" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Purple Standard" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+
+<!-- Typefaces are already self-hosted for the three sites; the hub
+     borrows each client's display face for its own card. -->
+<link rel="stylesheet" href="assets/fonts/newsreader-hankengrotesk-notosansarabic-notosansgurm-d220b9.css" />
+<link rel="stylesheet" href="assets/fonts/baloo2-nunito-caveat-6d0d2e.css" />
+<link rel="stylesheet" href="assets/fonts/fraunces-inter-caveat-amiri-46a6b3.css" />
+
+<style>
+/* ============================================================
+   Purple Standard — portfolio hub
+
+   The frame carries no accent colour of its own. Every bit of
+   colour and every display typeface on this page is borrowed
+   from the client it belongs to, so the page demonstrates the
+   pitch — no two builds look alike — before a word is spoken.
+   ============================================================ */
+
+:root {
+  --ink:       #16181D;   /* gallery wall            */
+  --ink-2:     #1E212A;   /* card surface            */
+  --ink-3:     #262A35;   /* raised / hairline fill  */
+  --chalk:     #ECEDF1;   /* primary text            */
+  --chalk-mid: #A7ACBA;   /* secondary text          */
+  --chalk-dim: #6E7484;   /* tertiary / labels       */
+  --line:      rgba(255, 255, 255, 0.10);
+  --line-soft: rgba(255, 255, 255, 0.06);
+
+  --frame: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --sp-1: 8px;  --sp-2: 16px; --sp-3: 24px;
+  --sp-4: 32px; --sp-5: 48px; --sp-6: 72px;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--chalk);
+  font-family: var(--frame);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  padding:
+    calc(env(safe-area-inset-top, 0px) + var(--sp-3))
+    calc(env(safe-area-inset-right, 0px) + var(--sp-4))
+    calc(env(safe-area-inset-bottom, 0px) + var(--sp-4))
+    calc(env(safe-area-inset-left, 0px) + var(--sp-4));
+}
+
+.shell { max-width: 1180px; margin: 0 auto; }
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: var(--sp-3); flex-wrap: wrap;
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--line);
+}
+
+.wordmark {
+  margin: 0;
+  font-size: 1.0625rem; font-weight: 800;
+  letter-spacing: 0.16em; text-transform: uppercase;
+}
+
+.locale {
+  margin: 0;
+  font-size: 0.8125rem; font-weight: 500;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--chalk-dim);
+}
+
+/* ---------- thesis ---------- */
+
+/* Kept deliberately tight: on a 768pt iPad handed to someone, all
+   three cards have to be visible and tappable without scrolling. */
+.thesis { padding: var(--sp-4) 0 var(--sp-3); }
+
+.thesis h1 {
+  margin: 0;
+  max-width: 24ch;
+  font-size: clamp(1.6rem, 1.05rem + 1.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+}
+
+.thesis p {
+  margin: var(--sp-2) 0 0;
+  max-width: 58ch;
+  color: var(--chalk-mid);
+  font-size: 1rem;
+}
+
+/* ---------- the work ---------- */
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: var(--sp-3);
+  margin: 0; padding: 0; list-style: none;
+}
+
+.work {
+  --c:    #FFFFFF;                     /* client accent           */
+  --wash: rgba(255, 255, 255, 0.05);   /* client tint over card   */
+  --face: var(--frame);                /* client display typeface */
+
+  position: relative;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  color: inherit; text-decoration: none;
+  transition: transform 0.28s var(--ease), border-color 0.28s var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* the client's colour, laid over the neutral card */
+.work::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--wash);
+  opacity: 0.85;
+  pointer-events: none;
+  transition: opacity 0.28s var(--ease);
+}
+
+/* the accent rule that identifies whose card this is */
+.work::after {
+  content: '';
+  position: absolute; inset: 0 0 auto 0; height: 3px;
+  background: var(--c);
+  z-index: 3;
+}
+
+.work:hover, .work:focus-visible { transform: translateY(-4px); border-color: var(--c); }
+.work:hover::before, .work:focus-visible::before { opacity: 1; }
+.work:focus-visible { outline: 2px solid var(--c); outline-offset: 3px; }
+.work:active { transform: scale(0.988); }
+
+.work-shot {
+  position: relative; z-index: 2;
+  display: block; aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--ink-3);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.work-shot img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+}
+
+.work-meta {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  gap: 2px;
+  padding: var(--sp-3);
+  margin-top: auto;
+}
+
+.work-kind {
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--chalk-dim);
+}
+
+.work-name {
+  font-family: var(--face);
+  font-size: 1.6rem;
+  line-height: 1.15;
+  margin-top: 5px;
+}
+
+.work-note {
+  margin-top: var(--sp-1);
+  font-size: 0.9375rem;
+  color: var(--chalk-mid);
+}
+
+.work-open {
+  display: inline-flex; align-items: center; gap: 7px;
+  margin-top: var(--sp-2);
+  font-size: 0.875rem; font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--c);
+}
+.work-open svg { transition: transform 0.28s var(--ease); }
+.work:hover .work-open svg { transform: translateX(4px); }
+
+/* Each client's real palette and display face, sampled from
+   that build's own stylesheet. */
+.work--sweet-treat {
+  --c: #9CAFF2; --face: 'Baloo 2', var(--frame);
+  --wash: linear-gradient(165deg, rgba(124, 150, 238, 0.16), rgba(243, 179, 63, 0.07) 62%, transparent);
+}
+.work--fenwick-dental {
+  --c: #7FD8E4; --face: 'Newsreader', Georgia, serif;
+  --wash: linear-gradient(165deg, rgba(52, 158, 173, 0.18), rgba(127, 168, 136, 0.07) 62%, transparent);
+}
+.work--lantern-cafe {
+  --c: #E05F5F; --face: 'Fraunces', Georgia, serif;
+  --wash: linear-gradient(165deg, rgba(200, 42, 52, 0.18), rgba(226, 163, 60, 0.08) 62%, transparent);
+}
+
+/* ---------- footer ---------- */
+
+.footer {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--sp-3); flex-wrap: wrap;
+  margin-top: var(--sp-4); padding-top: var(--sp-3);
+  border-top: 1px solid var(--line);
+  font-size: 0.875rem; color: var(--chalk-dim);
+}
+
+.footer p { margin: 0; }
+
+#cache-state {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-weight: 600; letter-spacing: 0.02em;
+}
+
+#cache-state .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--chalk-dim);
+  flex: none;
+}
+#cache-state[data-state="working"] .dot { background: #E2A33C; animation: pulse 1.4s ease-in-out infinite; }
+#cache-state[data-state="ready"]   .dot { background: #7FA888; }
+#cache-state[data-state="ready"]        { color: #9EC2A5; }
+
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+/* ---------- entrance ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise { opacity: 0; transform: translateY(14px); animation: rise 0.62s var(--ease) forwards; }
+  .work-grid .work:nth-child(1) { animation-delay: 0.10s; }
+  .work-grid .work:nth-child(2) { animation-delay: 0.17s; }
+  .work-grid .work:nth-child(3) { animation-delay: 0.24s; }
+  .footer { animation-delay: 0.34s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .thesis { padding: var(--sp-4) 0 var(--sp-3); }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <header class="masthead rise">
+    <p class="wordmark">Purple Standard</p>
+    <p class="locale">Some of our designs</p>
+  </header>
+
+  <div class="thesis rise">
+    <h1>Three websites, three bespoke design languages.</h1>
+    <p>Nothing here shares a template — each one is drawn from the business it belongs to. Tap any of them to open it and look around.</p>
+  </div>
+
+  <nav class="work-grid" aria-label="Recent work">
+
+    <a class="work work--sweet-treat rise" href="sweet-treat/index.html">
+      <span class="work-shot">
+        <img src="assets/shots/sweet-treat.webp" width="960" height="600"
+             alt="The Sweet Treat Desserts homepage: a warm cream page with rounded periwinkle and gold lettering." />
+      </span>
+      <span class="work-meta">
+        <span class="work-kind">Bakery</span>
+        <span class="work-name">Sweet Treat Desserts</span>
+        <span class="work-note">Six pages, built around the counter display.</span>
+        <span class="work-open">Open the site
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h13M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </span>
+    </a>
+
+    <a class="work work--fenwick-dental rise" href="fenwick-dental/index.html">
+      <span class="work-shot">
+        <img src="assets/shots/fenwick-dental.webp" width="960" height="600"
+             alt="The Fenwick Family Dental homepage: a calm off-white page with a serif headline and a teal booking button." />
+      </span>
+      <span class="work-meta">
+        <span class="work-kind">Dental practice</span>
+        <span class="work-name">Fenwick Family Dental</span>
+        <span class="work-note">Thirteen pages, one for every treatment.</span>
+        <span class="work-open">Open the site
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h13M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </span>
+    </a>
+
+    <a class="work work--lantern-cafe rise" href="lantern-cafe/index.html">
+      <span class="work-shot">
+        <img src="assets/shots/lantern-cafe.webp" width="960" height="600"
+             alt="The Lantern Art Café homepage: soft watercolour blooms behind a serif wordmark." />
+      </span>
+      <span class="work-meta">
+        <span class="work-kind">Caf&eacute; &amp; gallery</span>
+        <span class="work-name">Lantern Art Caf&eacute;</span>
+        <span class="work-note">Six pages, painted on wet paper.</span>
+        <span class="work-open">Open the site
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h13M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </span>
+    </a>
+
+  </nav>
+
+  <footer class="footer rise">
+    <p id="cache-state" data-state="idle" role="status">
+      <span class="dot" aria-hidden="true"></span><span class="label">Checking offline copy&hellip;</span>
+    </p>
+    <p>Built by Jack Reeves</p>
+  </footer>
+
+</div>
+
+<script>
+/* Report whether the three sites are saved for offline use, so the
+   state is visible before walking into a shop with no signal. */
+(function () {
+  'use strict';
+  var el = document.getElementById('cache-state');
+  if (!el) return;
+  var label = el.querySelector('.label');
+
+  function set(state, text) {
+    el.setAttribute('data-state', state);
+    label.textContent = text;
+  }
+
+  if (!('serviceWorker' in navigator) ||
+      !(location.protocol === 'https:' || location.hostname === 'localhost')) {
+    set('idle', 'Open over the network');
+    return;
+  }
+
+  set('working', 'Saving all three for offline…');
+
+  navigator.serviceWorker.addEventListener('message', function (e) {
+    if (e.data && e.data.type === 'precache-done') {
+      set('ready', 'Saved — works with no signal');
+    }
+    if (e.data && e.data.type === 'precache-failed') {
+      set('idle', 'Partly saved — reload on Wi-Fi to finish');
+    }
+  });
+
+  // Relative, so this works at a domain root or under a subpath.
+  navigator.serviceWorker.register('sw.js', { scope: './' })
+    .then(function (reg) {
+      // An already-active worker means the precache ran on an earlier visit.
+      if (reg.active && navigator.serviceWorker.controller) {
+        set('ready', 'Saved — works with no signal');
+      }
+      return navigator.serviceWorker.ready;
+    })
+    .then(function () {
+      if (navigator.serviceWorker.controller) {
+        set('ready', 'Saved — works with no signal');
+      }
+    })
+    .catch(function () {
+      set('idle', 'Offline copy unavailable');
+    });
+})();
+</script>
+</body>
+</html>

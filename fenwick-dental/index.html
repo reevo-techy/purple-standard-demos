@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fenwick Family Dental — Family &amp; Cosmetic Dentist in Midtown Toronto</title>
+<meta name="description" content="Toronto's family and cosmetic dental practice for 20 years. Book online. Canadian Dental Care Plan accepted. Six languages spoken. Invisalign, implants, whitening, emergency care.">
+<link rel="canonical" href="https://fenwickfamilydental.ca/">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fenwick Family Dental — Family &amp; Cosmetic Dentist">
+<meta property="og:description" content="Caring for Toronto families for 20 years. Book online — CDCP accepted, six languages spoken.">
+<meta property="og:image" content="https://fenwickfamilydental.ca/images/hero-clinician-patient.webp">
+<meta property="og:url" content="https://fenwickfamilydental.ca/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fenwick Family Dental — Family &amp; Cosmetic Dentist">
+<meta name="twitter:description" content="Caring for Toronto families for 20 years. Book online — CDCP accepted.">
+
+<link href="../assets/fonts/newsreader-hankengrotesk-notosansarabic-notosansgurm-d220b9.css" rel="stylesheet">
+<link rel="preload" as="image" href="images/hero-clinician-patient.webp">
+<link rel="stylesheet" href="css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "Fenwick Family Dental",
+  "alternateName": "Dr. Nadia Kessler Professional Corporation",
+  "image": "https://fenwickfamilydental.ca/images/hero-clinician-patient.webp",
+  "url": "https://fenwickfamilydental.ca/",
+  "telephone": "+1-416-555-0134",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "224 Merton Street, Suite 3",
+    "addressLocality": "Toronto",
+    "addressRegion": "ON",
+    "postalCode": "M4S 1A2",
+    "addressCountry": "CA"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 43.7026, "longitude": -79.3903 },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.5", "reviewCount": "201" },
+  "knowsLanguage": ["en", "ar", "es", "tl", "ur", "pa"],
+  "availableLanguage": ["English", "Arabic", "Spanish", "Tagalog", "Urdu", "Punjabi"],
+  "paymentAccepted": "Cash, Debit, Credit Card, Insurance, Canadian Dental Care Plan",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "09:00", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "16:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
+  ],
+  "areaServed": ["Toronto", "Midtown Toronto", "North York", "East York", "Davisville Village"]
+}
+</script>
+
+<!-- Purple Standard portfolio demo build -->
+<meta name="robots" content="noindex, nofollow" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Purple Standard" />
+<link rel="manifest" href="../manifest.webmanifest" />
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" />
+</head>
+<body>
+
+<!-- ============ SMILE INTRO (one-time opener) ============ -->
+<div class="intro" id="intro" role="presentation" aria-hidden="true">
+  <div class="intro-stage">
+    <svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="throat" cx="50%" cy="58%" r="62%">
+          <stop offset="0%" stop-color="#0A1A2E"/>
+          <stop offset="70%" stop-color="#123152"/>
+          <stop offset="100%" stop-color="#24425F"/>
+        </radialGradient>
+        <clipPath id="mouthClip">
+          <path d="M38 110 Q120 94 202 110 Q120 202 38 110 Z"/>
+        </clipPath>
+      </defs>
+      <!-- interior + tongue + teeth, clipped to the open mouth -->
+      <g clip-path="url(#mouthClip)">
+        <rect x="18" y="40" width="204" height="190" fill="url(#throat)"/>
+        <!-- dark throat (the point we dive into) -->
+        <ellipse cx="120" cy="154" rx="50" ry="30" fill="#06121F"/>
+        <!-- tongue -->
+        <ellipse cx="120" cy="192" rx="52" ry="22" fill="#E7998F"/>
+        <ellipse cx="120" cy="198" rx="26" ry="12" fill="#D97F73"/>
+        <!-- upper teeth -->
+        <path d="M42 111 Q120 96 198 111 L198 126 Q158 140 120 138 Q82 140 42 126 Z" fill="#FCFBF8"/>
+        <!-- tooth separations -->
+        <g stroke="#E7DED0" stroke-width="2" stroke-linecap="round">
+          <path d="M74 100 L74 132"/>
+          <path d="M97 98 L97 135"/>
+          <path d="M120 97 L120 136"/>
+          <path d="M143 98 L143 135"/>
+          <path d="M166 100 L166 132"/>
+        </g>
+      </g>
+      <!-- lips -->
+      <path d="M38 110 Q120 94 202 110 Q120 202 38 110 Z"
+            fill="none" stroke="#E27A63" stroke-width="15" stroke-linejoin="round"/>
+    </svg>
+    <span class="intro-spark s1" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.6 8.8L24 12l-9.4 3.2L12 24l-2.6-8.8L0 12l9.4-3.2z"/></svg></span>
+    <span class="intro-spark s2" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.6 8.8L24 12l-9.4 3.2L12 24l-2.6-8.8L0 12l9.4-3.2z"/></svg></span>
+    <span class="intro-spark s3" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.6 8.8L24 12l-9.4 3.2L12 24l-2.6-8.8L0 12l9.4-3.2z"/></svg></span>
+  </div>
+  <div class="intro-throat" aria-hidden="true"></div>
+</div>
+<script>
+(function () {
+  var intro = document.getElementById('intro');
+  if (!intro) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // ?smile (or #smile) forces a replay — handy for live demos.
+  var force = /(?:^|[?&#])smile\b/.test(location.search + location.hash);
+  var seen = false;
+  try { seen = !force && sessionStorage.getItem('sda-intro') === '1'; } catch (e) {}
+  function remove() {
+    if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
+    document.documentElement.classList.remove('intro-lock');
+  }
+  if (reduce || seen) { remove(); return; }
+  try { sessionStorage.setItem('sda-intro', '1'); } catch (e) {}
+  document.documentElement.classList.add('intro-lock');
+  intro.addEventListener('animationend', function (e) {
+    if (e.animationName === 'introFade' || e.animationName === 'introSkip') remove();
+  });
+  function skip() {
+    intro.classList.add('is-skip');
+    window.removeEventListener('keydown', skip);
+  }
+  intro.addEventListener('pointerdown', skip);
+  window.addEventListener('keydown', skip);
+  setTimeout(remove, 3200); // safety net if animationend never fires
+})();
+</script>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ HEADER (inline — homepage paths) ============ -->
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html" aria-label="Fenwick Family Dental — home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21c-1.6-1.1-3.2-1.6-4.8-1.6C5.5 19.4 4 17.4 4 14.2 4 9 7 6.5 9.4 6.5c1.2 0 2 .5 2.6 1 .6-.5 1.4-1 2.6-1C17 6.5 20 9 20 14.2c0 3.2-1.5 5.2-3.2 5.2-1.6 0-3.2.5-4.8 1.6Z" fill="#fff"/></svg>
+      </span>
+      <span class="brand-name">Fenwick <span>Family Dental</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navmenu" aria-label="Menu"><span></span></button>
+    <ul class="nav-links" id="navmenu">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="pages/services.html">Services</a></li>
+      <li><a href="pages/team.html">Meet the Team</a></li>
+      <li><a href="pages/new-patients.html">New Patients</a></li>
+      <li><a href="pages/cdcp-insurance.html">CDCP &amp; Insurance</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="nav-call" href="tel:+14165550134">(416) 555-0134</a>
+      <a class="btn btn--primary" href="pages/contact.html#book">Book Online</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============ 1 · HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal in">
+        <p class="eyebrow">Family &amp; cosmetic dentistry · Midtown Toronto</p>
+        <h1>Toronto's family dentist for 20&nbsp;years — <span class="smile">now booking online.</span></h1>
+        <p class="hero-lead">Gentle, unhurried care for the whole family in Midtown Toronto. We accept the Canadian Dental Care Plan, and our team speaks six languages.</p>
+        <div class="hero-ctas">
+          <a class="btn btn--primary btn--lg" href="pages/contact.html#book">Book Online</a>
+          <a class="btn btn--ghost btn--lg" href="tel:+14165550134">Call (416)&nbsp;555-0134</a>
+        </div>
+        <div class="hero-langs">
+          <p class="label">You'll be understood here — we speak:</p>
+          <div class="pill-row lang-pills">
+            <span class="pill" lang="en">English</span>
+            <span class="pill" lang="ar">العربية</span>
+            <span class="pill" lang="es">Español</span>
+            <span class="pill" lang="tl">Tagalog</span>
+            <span class="pill" lang="ur">اردو</span>
+            <span class="pill" lang="pa">ਪੰਜਾਬੀ</span>
+          </div>
+        </div>
+      </div>
+      <figure class="hero-figure reveal in d1">
+        <img src="images/hero-clinician-patient.webp" alt="A dentist talking with a patient in the dental chair, both smiling during a relaxed appointment" width="640" height="512">
+        <div class="hero-float">
+          <span class="review-stars" aria-hidden="true">★★★★★</span>
+          <span><strong>4.5 ★</strong><small>200+ patient reviews</small></span>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 2 · TRUST STRIP ============ -->
+  <section class="trust">
+    <div class="wrap trust-grid">
+      <div class="trust-item reveal">
+        <span class="trust-ico twinkle"><span class="review-stars star" aria-hidden="true">★</span></span>
+        <span><strong>4.5 ★ · 200+ reviews</strong><small>Aggregated patient feedback</small></span>
+      </div>
+      <div class="trust-item reveal d1">
+        <span class="trust-ico" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 8l9-5 9 5-9 5-9-5Z" stroke="#28717B" stroke-width="2" stroke-linejoin="round"/></svg>
+        </span>
+        <span><strong>20 years in Midtown Toronto</strong><small>The same trusted neighbourhood address</small></span>
+      </div>
+      <div class="trust-item reveal d2">
+        <span class="trust-ico" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12.5 10 17l9-10" stroke="#4F7458" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span><strong>Canadian Dental Care Plan</strong><small>New CDCP patients welcome</small></span>
+      </div>
+      <div class="trust-item reveal d3">
+        <span class="trust-ico" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2.5" stroke="#28717B" stroke-width="2"/><path d="M3 10h18" stroke="#28717B" stroke-width="2"/></svg>
+        </span>
+        <span><strong>Direct insurance billing</strong><small>We handle the paperwork <span class="confirm">[CONFIRM]</span></small></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3 · WHAT WE DO ============ -->
+  <section class="section" aria-labelledby="svc-head">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">What we do</p>
+        <h2 id="svc-head">Everything your family's smile needs, in one place</h2>
+        <p>From a child's first cleaning to a confident new smile — care that grows with you.</p>
+      </div>
+      <div class="svc-grid">
+        <a class="card reveal" href="pages/general-family-dentistry.html">
+          <span class="svc-ico" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M16 27c-2-1.5-4-2.2-6-2.2-2.3 0-3.8-2.7-3.8-7C6.2 10.5 9.8 7.5 12.6 7.5c1.5 0 2.6.7 3.4 1.4.8-.7 1.9-1.4 3.4-1.4 2.8 0 6.4 3 6.4 10.3 0 4.3-1.5 7-3.8 7-2 0-4 .7-6 2.2Z" fill="#F4D9C2" stroke="#10243C" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>General &amp; Family Dentistry</h3>
+          <p>Checkups, fillings, crowns and kids' visits — the everyday care that keeps smiles healthy.</p>
+          <span class="card-more">Learn more →</span>
+        </a>
+        <a class="card reveal d1" href="pages/cleanings-hygiene.html">
+          <span class="svc-ico" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="9" fill="#F4D9C2"/><path d="M16 7v18M7 16h18" stroke="#10243C" stroke-width="1.8" stroke-linecap="round"/><circle cx="16" cy="16" r="9" stroke="#10243C" stroke-width="1.8"/></svg>
+          </span>
+          <h3>Cleanings &amp; Hygiene</h3>
+          <p>Comfortable professional cleanings and gum care, at a pace that suits you.</p>
+          <span class="card-more">Learn more →</span>
+        </a>
+        <a class="card reveal d2" href="pages/invisalign.html">
+          <span class="svc-ico" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M7 11c0-2 2-3 9-3s9 1 9 3-1 10-3 12c-1.6 1.6-3.4-1-6-1s-4.4 2.6-6 1C8 21 7 13 7 11Z" fill="#F4D9C2" stroke="#10243C" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Invisalign</h3>
+          <p>Clear, removable aligners that straighten your smile without the metal.</p>
+          <span class="card-more">Learn more →</span>
+        </a>
+        <a class="card reveal" href="pages/dental-implants.html">
+          <span class="svc-ico" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M16 5c3 0 5 2 5 5 0 4-2 5-2 9l-3 7-3-7c0-4-2-5-2-9 0-3 2-5 5-5Z" fill="#F4D9C2" stroke="#10243C" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 14h8M13 18h6" stroke="#10243C" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Dental Implants</h3>
+          <p>A natural-looking, permanent way to replace a missing tooth — or several.</p>
+          <span class="card-more">Learn more →</span>
+        </a>
+        <a class="card reveal d1" href="pages/teeth-whitening.html">
+          <span class="svc-ico" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M16 26c-2-1.4-4-2-5.6-2-2 0-3.4-2.4-3.4-6.2C7 11 10 8.5 12.5 8.5c1.4 0 2.5.6 3.5 1.3 1-.7 2.1-1.3 3.5-1.3 2.5 0 5.5 2.5 5.5 9.3 0 3.8-1.4 6.2-3.4 6.2-1.6 0-3.6.6-5.6 2Z" fill="#F4D9C2" stroke="#10243C" stroke-width="1.8" stroke-linejoin="round"/><path d="M22 6.5 23 9l2.5 1-2.5 1-1 2.5-1-2.5L18.5 10 21 9l1-2.5Z" fill="#10243C"/></svg>
+          </span>
+          <h3>Zoom Teeth Whitening</h3>
+          <p>A brighter smile in a single visit — professionally and safely.</p>
+          <span class="card-more">Learn more →</span>
+        </a>
+        <a class="card reveal d2" href="pages/emergency-dentistry.html">
+          <span class="svc-ico" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" fill="#F4D9C2" stroke="#10243C" stroke-width="1.8"/><path d="M16 9v8M16 21.5v.5" stroke="#10243C" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Emergency Dentistry</h3>
+          <p>In pain today? Call us first thing — we keep room for urgent visits.</p>
+          <span class="card-more">Learn more →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4 · TWO-TRACK SPLIT ============ -->
+  <section class="section section--tight" aria-label="Choose your care">
+    <div class="wrap">
+      <div class="two-track">
+        <div class="track reveal">
+          <div class="track-img">
+            <img src="images/family-track.webp" alt="A boy relaxing in the dental chair beside a friendly clinician" width="560" height="350">
+          </div>
+          <p class="eyebrow">For your family</p>
+          <h3>Care that grows with your kids</h3>
+          <p>Calm first visits, gentle cleanings, and a team that takes the time to make children — and parents — feel at ease. We've looked after Toronto families for two decades.</p>
+          <a class="btn btn--primary" href="pages/contact.html#book">Book a family visit</a>
+        </div>
+        <div class="track reveal d1">
+          <div class="track-img">
+            <img src="images/cosmetic-track.webp" alt="A clinician pointing out details on a dental scan displayed on a tablet" width="560" height="350">
+          </div>
+          <p class="eyebrow">Considering Invisalign or implants?</p>
+          <h3>A confident smile, planned with you</h3>
+          <p>Thinking about straightening, whitening, or replacing a tooth? Start with a free, no-pressure consultation — we'll show you the options and what each one involves.</p>
+          <a class="btn btn--primary" href="pages/contact.html#book">Book a cosmetic consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5 · MEET THE TEAM ============ -->
+  <section class="section" style="background:var(--paper-2)" aria-labelledby="team-head">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Meet the team</p>
+        <h2 id="team-head">Familiar faces who'll remember yours</h2>
+        <p>The same trusted clinicians, year after year — that's what 20 years in one place looks like.</p>
+      </div>
+      <div class="team-rail reveal d1">
+        <article class="team-card">
+          <img src="images/team-kessler.svg" alt="Dr. Nadia Kessler" width="296" height="370">
+          <div class="team-body">
+            <h3>Dr. Nadia Kessler</h3>
+            <p class="team-cred">Lead dentist · DDS</p>
+            <p class="team-known"><b>Best known for</b> putting nervous patients at ease.</p>
+            <p class="pill-row"><span class="pill" lang="en">English</span><span class="pill" lang="ar">العربية</span></p>
+          </div>
+        </article>
+        <article class="team-card">
+          <img src="images/team-whitfield.svg" alt="Dr. Marcus Whitfield" width="296" height="370">
+          <div class="team-body">
+            <h3>Dr. Marcus Whitfield</h3>
+            <p class="team-cred">Partner dentist · cosmetic &amp; restorative dentistry</p>
+            <p class="team-known"><b>Best known for</b> natural-looking smile makeovers.</p>
+            <p class="pill-row"><span class="pill" lang="en">English</span></p>
+          </div>
+        </article>
+        <article class="team-card">
+          <img src="images/team-hygienist-1.svg" alt="Fenwick Family Dental hygienist" width="296" height="370">
+          <div class="team-body">
+            <h3><span class="confirm">[CONFIRM name]</span></h3>
+            <p class="team-cred">Registered Dental Hygienist</p>
+            <p class="team-known"><b>Best known for</b> the most thorough, gentlest cleanings.</p>
+            <p class="pill-row"><span class="pill" lang="en">English</span><span class="pill" lang="tl">Tagalog</span></p>
+          </div>
+        </article>
+        <article class="team-card">
+          <img src="images/team-hygienist-2.svg" alt="Fenwick Family Dental team member" width="296" height="370">
+          <div class="team-body">
+            <h3><span class="confirm">[CONFIRM name]</span></h3>
+            <p class="team-cred">Treatment coordinator</p>
+            <p class="team-known"><b>Best known for</b> making insurance &amp; CDCP simple.</p>
+            <p class="pill-row"><span class="pill" lang="es">Español</span><span class="pill" lang="pa">ਪੰਜਾਬੀ</span></p>
+          </div>
+        </article>
+      </div>
+      <div class="team-controls reveal">
+        <button class="rail-btn" data-rail="prev" aria-label="Previous team members">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="rail-btn" data-rail="next" aria-label="Next team members">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <a class="btn btn--ghost" href="pages/team.html" style="margin-left:auto">Meet the full team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6 · NEW PATIENTS ============ -->
+  <section class="section" aria-labelledby="np-head">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">New patients</p>
+        <h2 id="np-head">Your first visit, made easy</h2>
+        <p>Three simple steps — most of the paperwork is done before you arrive.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><div class="step-num">1</div><h3>Book online or call</h3><p>Pick a time that works in under a minute, or call us at (416)&nbsp;555-0134 and we'll find one with you.</p></div>
+        <div class="step reveal d1"><div class="step-num">2</div><h3>Complete your forms</h3><p>We'll send a short digital intake form. Fill it in at home so your first visit starts on time.</p></div>
+        <div class="step reveal d2"><div class="step-num">3</div><h3>Come in for your cleaning</h3><p>Meet your clinician, get a gentle cleaning and full assessment, and leave with a clear plan.</p></div>
+      </div>
+      <div class="callout reveal">
+        <span class="badge">Direct billing</span>
+        <p style="margin:0"><strong>We handle the paperwork.</strong> We bill most insurers directly, so you only pay what's left over — if anything. <span class="confirm">[CONFIRM direct billing setup &amp; insurers]</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7 · CDCP BANNER ============ -->
+  <section class="cdcp section" aria-labelledby="cdcp-head">
+    <div class="wrap cdcp-grid">
+      <div class="reveal">
+        <p class="eyebrow">Canadian Dental Care Plan</p>
+        <h2 id="cdcp-head">We accept the Canadian Dental Care Plan</h2>
+        <p>The CDCP helps eligible Canadian residents without private dental insurance get the care they need. If you're enrolled — or think you might qualify — you're welcome here. Bring your CDCP member card and we'll take care of the rest.</p>
+        <div class="cdcp-ctas">
+          <a class="btn btn--peach" href="https://www.canada.ca/en/services/benefits/dental/dental-care-plan.html" target="_blank" rel="noopener">Check if you're eligible →</a>
+          <a class="btn btn--ghost" href="pages/contact.html#book">Book your CDCP visit</a>
+        </div>
+      </div>
+      <div class="cdcp-card reveal d1">
+        <h3 style="font-size:var(--t-h3)">Quick guide</h3>
+        <ul>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12.5 10 17l9-10" stroke="#4F7458" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Who qualifies</b> — Canadian residents without private dental coverage who meet the income threshold.</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12.5 10 17l9-10" stroke="#4F7458" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>What's covered</b> — cleanings, exams, fillings, X-rays and more. <span class="confirm">[CONFIRM specifics]</span></span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12.5 10 17l9-10" stroke="#4F7458" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>How to book</b> — apply through Service Canada, then call us with your member number.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8 · REVIEWS ============ -->
+  <section class="section" aria-labelledby="rev-head">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">From our patients</p>
+        <h2 id="rev-head">Two decades of Toronto smiles</h2>
+        <p>A few words from the families and patients who trust us. <span class="confirm">[CONFIRM quotes &amp; attribution]</span></p>
+      </div>
+      <div class="reviews-grid">
+        <figure class="review reveal">
+          <span class="review-stars" aria-hidden="true">★★★★★</span>
+          <blockquote>"Dr. Kessler is so patient and gentle. My kids actually look forward to their cleanings now — that says everything."</blockquote>
+          <figcaption><b>Maria&nbsp;L.</b> · Family patient · 6 years</figcaption>
+        </figure>
+        <figure class="review reveal d1">
+          <span class="review-stars" aria-hidden="true">★★★★★</span>
+          <blockquote>"I finished my Invisalign here and couldn't be happier. Every visit they explained exactly what was happening and why."</blockquote>
+          <figcaption><b>Jason&nbsp;P.</b> · Invisalign patient</figcaption>
+        </figure>
+        <figure class="review reveal d2">
+          <span class="review-stars" aria-hidden="true">★★★★★</span>
+          <blockquote>"They spoke to my mother in Arabic and made her feel completely comfortable. We've been coming for years."</blockquote>
+          <figcaption><b>Hala&nbsp;K.</b> · Family patient</figcaption>
+        </figure>
+      </div>
+      <p class="center" style="margin-top:var(--sp-4)">
+        <a class="btn btn--ghost" href="https://www.google.com/search?q=Fenwick+Family+Dental+Toronto+reviews" target="_blank" rel="noopener">Read all 200+ reviews on Google →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 9 · FAQ ============ -->
+  <section class="section" style="background:var(--paper-2)" aria-labelledby="faq-head">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="eyebrow">Good to know</p>
+        <h2 id="faq-head">Questions, answered</h2>
+      </div>
+      <div class="faq reveal d1">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How do I book an appointment?</button>
+          <div class="faq-a"><div>Book online any time using the button at the top of the page, or call us at (416)&nbsp;555-0134 during office hours. New patients are always welcome.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Are you accepting new patients?</button>
+          <div class="faq-a"><div>Yes — we're happily welcoming new patients and families. Just book online or give us a call to get started.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Do you offer direct insurance billing?</button>
+          <div class="faq-a"><div>We bill most major insurers directly so you don't pay up front and wait for reimbursement. <span class="confirm">[CONFIRM which insurers &amp; how it works]</span></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What languages does the team speak?</button>
+          <div class="faq-a"><div>Between our clinicians and front-desk team we speak English, Arabic, Spanish, Tagalog, Urdu and Punjabi. Let us know your preference when you book.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Do you accept the Canadian Dental Care Plan (CDCP)?</button>
+          <div class="faq-a"><div>Yes. If you're enrolled in the CDCP, bring your member card and we'll bill the plan directly. Not sure if you qualify? See our <a href="pages/cdcp-insurance.html">CDCP &amp; Insurance page</a>.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Is the Invisalign or implant consultation free?</button>
+          <div class="faq-a"><div>Yes — cosmetic consultations are complimentary. You'll get an honest look at your options and what each involves, with no pressure to commit. <span class="confirm">[CONFIRM]</span></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Do you see children?</button>
+          <div class="faq-a"><div>Absolutely. We see patients of every age and take special care to make a child's first visits calm and positive.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What if I haven't been to a dentist in years?</button>
+          <div class="faq-a"><div>You're in good company, and there's no judgement here. We'll go at your pace, start with a gentle assessment, and build a plan that's comfortable for you.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Do you offer emergency appointments?</button>
+          <div class="faq-a"><div>Yes. If you're in pain or have a dental emergency, call us first thing — we hold time in the schedule for urgent visits. <span class="confirm">[CONFIRM emergency availability]</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 10 · VISIT + BOOK ============ -->
+  <section class="section" id="book" aria-labelledby="visit-head">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Visit us</p>
+        <h2 id="visit-head">Find us in Midtown Toronto</h2>
+        <p>Midtown Toronto, steps from the subway. <span class="confirm">[CONFIRM parking]</span></p>
+      </div>
+      <div class="visit-grid">
+        <div class="visit-info reveal">
+          <dl>
+            <dt>Address</dt>
+            <dd>224 Merton Street, Suite 3<br>Toronto, ON M4S 1A2</dd>
+            <dt>Phone</dt>
+            <dd><a href="tel:+14165550134">(416) 555-0134</a></dd>
+          </dl>
+          <h3 style="font-size:var(--t-h3);margin-top:var(--sp-3)">Hours <span class="confirm">[CONFIRM]</span></h3>
+          <table class="hours-table">
+            <tbody>
+              <tr><th scope="row">Monday – Thursday</th><td>9:00 AM – 7:00 PM</td></tr>
+              <tr><th scope="row">Friday</th><td>9:00 AM – 4:00 PM</td></tr>
+              <tr><th scope="row">Saturday</th><td>9:00 AM – 2:00 PM</td></tr>
+              <tr><th scope="row">Sunday</th><td>Closed</td></tr>
+            </tbody>
+          </table>
+          <div class="map-embed" style="margin-top:var(--sp-3)">
+            <div class="map-offline"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z" stroke-linejoin="round"/><circle cx="12" cy="11" r="2.6"/></svg><b>Fenwick Family Dental</b><span>224 Merton Street, Suite 3, Toronto, ON</span></div><iframe title="Map to Fenwick Family Dental at 224 Merton Street, Toronto" loading="lazy" data-map-src="https://www.google.com/maps?q=224+Merton+Street+Toronto+ON&output=embed"></iframe>
+          </div>
+        </div>
+        <div class="reveal d1">
+          <h3 style="font-size:var(--t-h3)">Book your appointment</h3>
+          <p style="color:var(--navy-soft)">Choose a time online — it takes about a minute.</p>
+          <div class="booking-embed" id="booking-embed" data-state="placeholder">
+            <span class="badge">Online booking</span>
+            <p style="margin:0"><strong>The live booking widget loads here.</strong></p>
+            <p style="margin:0;color:var(--navy-soft)">We'll embed the practice's booking system (NexHealth, Setmore, or Dentrix Online Booking). <span class="confirm">[CONFIRM which platform]</span></p>
+            <a class="btn btn--primary" href="tel:+14165550134">Or call to book — (416) 555-0134</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA BAND ============ -->
+  <section class="cta-band section--tight">
+    <div class="wrap center">
+      <h2>See you in Midtown Toronto.</h2>
+      <p>Book online today, or call (416)&nbsp;555-0134. New patients and CDCP members always welcome.</p>
+      <p style="margin-top:var(--sp-3)">
+        <a class="btn btn--primary btn--lg" href="pages/contact.html#book">Book Online</a>
+        <a class="btn btn--ghost btn--lg" href="tel:+14165550134" style="margin-left:10px">Call us</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER (inline — homepage paths) ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:14px">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21c-1.6-1.1-3.2-1.6-4.8-1.6C5.5 19.4 4 17.4 4 14.2 4 9 7 6.5 9.4 6.5c1.2 0 2 .5 2.6 1 .6-.5 1.4-1 2.6-1C17 6.5 20 9 20 14.2c0 3.2-1.5 5.2-3.2 5.2-1.6 0-3.2.5-4.8 1.6Z" fill="#fff"/></svg>
+          </span>
+          <span class="brand-name">Fenwick <span>Family Dental</span></span>
+        </a>
+        <p style="color:var(--navy-soft);max-width:34ch">Family &amp; cosmetic dentistry in Midtown Toronto — caring for our neighbours for over 20 years.</p>
+        <p><span class="badge">Canadian Dental Care Plan accepted</span></p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>224 Merton Street, Suite 3<br>Toronto, ON M4S 1A2</li>
+          <li><a href="tel:+14165550134">(416) 555-0134</a></li>
+          <li><a href="https://maps.google.com/?q=224+Merton+Street+Suite+3+Toronto+ON" target="_blank" rel="noopener">Get directions ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="pages/services.html">Services</a></li>
+          <li><a href="pages/team.html">Meet the Team</a></li>
+          <li><a href="pages/new-patients.html">New Patients</a></li>
+          <li><a href="pages/cdcp-insurance.html">CDCP &amp; Insurance</a></li>
+          <li><a href="pages/contact.html#book">Book Online</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>We speak your language</h4>
+        <div class="footer-langs">
+          <span lang="en">English</span><span aria-hidden="true">·</span>
+          <span lang="ar">العربية</span><span aria-hidden="true">·</span>
+          <span lang="es">Español</span><span aria-hidden="true">·</span>
+          <span lang="tl">Tagalog</span><span aria-hidden="true">·</span>
+          <span lang="ur">اردو</span><span aria-hidden="true">·</span>
+          <span lang="pa">ਪੰਜਾਬੀ</span>
+        </div>
+        <p style="margin-top:14px"><a href="https://www.facebook.com/fenwickfamilydental" target="_blank" rel="noopener">Facebook ↗</a></p>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>© 2026 Fenwick Family Dental · Dr. Nadia Kessler Professional Corporation</span>
+      <span>
+        <a href="pages/privacy.html">Privacy</a> &nbsp;·&nbsp;
+        <a href="pages/cdcp-insurance.html">CDCP info</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ STICKY MOBILE CTA ============ -->
+<div class="mobile-cta">
+  <a class="btn btn--primary" href="pages/contact.html#book">Book Online</a>
+  <a class="btn btn--ghost" href="tel:+14165550134">Call</a>
+</div>
+
+<script src="js/main.js" defer></script>
+
+<a id="rvz-back" href="../index.html" aria-label="Back to the Purple Standard portfolio">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M15 18l-6-6 6-6"/>
+  </svg>Portfolio</a>
+<script src="../assets/demo.js" defer></script>
+</body>
+</html>
