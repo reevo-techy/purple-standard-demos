@@ -34,8 +34,8 @@ instead of an error, and switches back to the live map when signal returns.
 
 ## How it is made offline-capable
 
-These are the client builds, with four changes that only exist in this
-showcase copy:
+These are design demos for fictional businesses. Four things make this
+showcase copy work offline:
 
 - **Fonts are self-hosted.** All five Google Fonts requests were downloaded
   and rewritten to local `woff2` files under `assets/fonts/`, with the
@@ -48,13 +48,13 @@ showcase copy:
 - **A service worker** (`sw.js`) precaches every file on the first visit.
 
 `assets/demo.js` and the demo layer appended to each stylesheet are the only
-additions to the client code itself, plus the `Portfolio` pill and a
+additions to the site code itself, plus the `Portfolio` pill and a
 `noindex` tag on every page.
 
 ## Notes on the content
 
-The builds are pre-launch, so some facts were never confirmed by the
-businesses. Nothing has been invented to fill those gaps:
+The businesses are fictional, so the pages carry demo details only where a
+page needs them to read properly:
 
 - `[CONFIRM]` badges are hidden with CSS — the sentences they annotated read
   correctly without them.
